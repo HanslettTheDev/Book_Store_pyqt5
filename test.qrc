@@ -1,0 +1,9 @@
+<!DOCTYPE RCC>
+<RCC version="1.0">
+<qresource prefix="16x16/icons">
+    <file>Assets/icons/16x16/cil-window-maximize.png</file>
+    <file>Assets/icons/16x16/cil-window-minimize.png</file>
+    <file>Assets/icons/16x16/cil-window-restore.png</file>
+    <file>Assets/icons/16x16/cil-x.png</file>
+</qresource>
+</RCC>
