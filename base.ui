@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1399</width>
-    <height>730</height>
+    <width>1435</width>
+    <height>767</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -40,7 +40,7 @@
       </property>
       <property name="styleSheet">
        <string notr="true">#frame_main {
-border: 1px solid #1c242c;
+border: 1px solid #22577E;
 }</string>
       </property>
       <property name="frameShape">
@@ -70,12 +70,12 @@ border: 1px solid #1c242c;
          <property name="maximumSize">
           <size>
            <width>16777215</width>
-           <height>45</height>
+           <height>40</height>
           </size>
          </property>
          <property name="styleSheet">
-          <string notr="true">background: #041C32;
-</string>
+          <string notr="true">background-color: #4D77FF;
+color: white;</string>
          </property>
          <property name="frameShape">
           <enum>QFrame::NoFrame</enum>
@@ -110,11 +110,11 @@ border: 1px solid #1c242c;
             <property name="maximumSize">
              <size>
               <width>16777215</width>
-              <height>50</height>
+              <height>40</height>
              </size>
             </property>
             <property name="styleSheet">
-             <string notr="true">background-color: rgba(33, 37, 43, 150);</string>
+             <string notr="true">background-color: #22577E;</string>
             </property>
             <property name="frameShape">
              <enum>QFrame::NoFrame</enum>
@@ -147,8 +147,7 @@ border: 1px solid #1c242c;
                 </size>
                </property>
                <property name="styleSheet">
-                <string notr="true">color:white;
-</string>
+                <string notr="true"/>
                </property>
                <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
@@ -183,7 +182,7 @@ border: 1px solid #1c242c;
                    </font>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">background: transparent;
+                   <string notr="true">background: none;
 margin-left: 5px;</string>
                   </property>
                   <property name="text">
@@ -212,7 +211,7 @@ background-color: rgb(44, 49, 60);
 }
 
 #close_button:hover {
-background-color: rgb(255, 52, 55);
+color: #F7E2E2;
 }</string>
                </property>
                <property name="frameShape">
@@ -249,7 +248,7 @@ background-color: rgb(255, 52, 55);
                    <string>Minimize</string>
                   </property>
                   <property name="toolTipDuration">
-                   <number>1000</number>
+                   <number>2000</number>
                   </property>
                   <property name="styleSheet">
                    <string notr="true">text-align: center;
@@ -272,7 +271,7 @@ margin-bottom: 2px;</string>
                    <string>Maximize</string>
                   </property>
                   <property name="toolTipDuration">
-                   <number>1000</number>
+                   <number>2000</number>
                   </property>
                   <property name="styleSheet">
                    <string notr="true">text-align: center;
@@ -295,11 +294,18 @@ margin-bottom: 2px;</string>
                    <string>Close</string>
                   </property>
                   <property name="toolTipDuration">
-                   <number>1000</number>
+                   <number>2000</number>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">text-align: center;
-margin-bottom: 2px;</string>
+                   <string notr="true">#close_button {
+text-align: center;
+margin-bottom: 2px;
+background-color: rgb(255, 52, 55);
+}
+
+#close_button:hover {
+background-color: #F7E2E2;
+}</string>
                   </property>
                   <property name="text">
                    <string/>
@@ -320,31 +326,30 @@ margin-bottom: 2px;</string>
          <property name="minimumSize">
           <size>
            <width>0</width>
-           <height>65</height>
+           <height>50</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
            <width>16777215</width>
-           <height>65</height>
+           <height>100</height>
           </size>
-         </property>
-         <property name="cursor">
-          <cursorShape>ArrowCursor</cursorShape>
          </property>
          <property name="styleSheet">
           <string notr="true">#frame_top {
 color: white;
 background: #1c242c;
-font-size: 15px;
 }
 QPushButton {
-background-color: rgb(98, 88, 153);
-color: rgb(255, 244, 251);
+background-color: white;
 font-size: 15px;
 }
 QPushButton:hover {
-background-color: #F8485E;
+background-color: #F0E5CF;
+}
+QLabel {
+color: white;
+font-size: 12px;
 }</string>
          </property>
          <property name="frameShape">
@@ -353,7 +358,10 @@ background-color: #F8485E;
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
          </property>
-         <layout class="QHBoxLayout" name="horizontalLayout_4">
+         <layout class="QHBoxLayout" name="horizontalLayout_6">
+          <property name="spacing">
+           <number>5</number>
+          </property>
           <property name="leftMargin">
            <number>0</number>
           </property>
@@ -367,60 +375,18 @@ background-color: #F8485E;
            <number>0</number>
           </property>
           <item>
-           <widget class="QFrame" name="frame_btn">
-            <property name="styleSheet">
-             <string notr="true"/>
+           <widget class="QFrame" name="frame">
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
             </property>
-            <layout class="QHBoxLayout" name="horizontalLayout_3">
-             <item>
-              <widget class="QFrame" name="frame_left">
-               <property name="maximumSize">
-                <size>
-                 <width>300</width>
-                 <height>16777215</height>
-                </size>
-               </property>
-               <property name="frameShape">
-                <enum>QFrame::StyledPanel</enum>
-               </property>
-               <property name="frameShadow">
-                <enum>QFrame::Raised</enum>
-               </property>
-               <layout class="QHBoxLayout" name="horizontalLayout_6"/>
-              </widget>
-             </item>
-             <item>
-              <widget class="QPushButton" name="button_14">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
-               <property name="minimumSize">
-                <size>
-                 <width>0</width>
-                 <height>30</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>16777215</width>
-                 <height>35</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true"/>
-               </property>
-               <property name="text">
-                <string>ECU Repair|Pinout</string>
-               </property>
-              </widget>
-             </item>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_6">
              <item>
               <widget class="QPushButton" name="button_12">
                <property name="sizePolicy">
-                <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
+                <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
                  <horstretch>0</horstretch>
                  <verstretch>0</verstretch>
                 </sizepolicy>
@@ -428,219 +394,39 @@ background-color: #F8485E;
                <property name="minimumSize">
                 <size>
                  <width>0</width>
-                 <height>30</height>
+                 <height>0</height>
                 </size>
                </property>
                <property name="maximumSize">
                 <size>
                  <width>16777215</width>
-                 <height>35</height>
+                 <height>16777215</height>
                 </size>
                </property>
-               <property name="styleSheet">
-                <string notr="true"/>
-               </property>
-               <property name="text">
+               <property name="toolTip">
                 <string>Airbag Reprog</string>
                </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QPushButton" name="button_11">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
-               <property name="minimumSize">
-                <size>
-                 <width>0</width>
-                 <height>30</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>16777215</width>
-                 <height>35</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true"/>
+               <property name="toolTipDuration">
+                <number>2000</number>
                </property>
                <property name="text">
-                <string>Dashboard Repair|Reset</string>
+                <string/>
+               </property>
+               <property name="checkable">
+                <bool>true</bool>
+               </property>
+               <property name="checked">
+                <bool>false</bool>
+               </property>
+               <property name="flat">
+                <bool>false</bool>
                </property>
               </widget>
              </item>
-             <item>
-              <widget class="QPushButton" name="button_16">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>16777215</width>
-                 <height>35</height>
-                </size>
-               </property>
+             <item alignment="Qt::AlignHCenter">
+              <widget class="QLabel" name="label_4">
                <property name="text">
-                <string>ECU Troubleshooting</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QPushButton" name="button_17">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>16777215</width>
-                 <height>35</height>
-                </size>
-               </property>
-               <property name="text">
-                <string>ECU Datasheet</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QPushButton" name="button_9">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
-               <property name="minimumSize">
-                <size>
-                 <width>0</width>
-                 <height>30</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>16777215</width>
-                 <height>35</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true"/>
-               </property>
-               <property name="text">
-                <string>Electronics</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QPushButton" name="button_15">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
-               <property name="minimumSize">
-                <size>
-                 <width>0</width>
-                 <height>30</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>16777215</width>
-                 <height>35</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">#button_15 {
-background-color: #FFEDDB;
-color: black;
-}
-#button_15:hover {
-background-color: #F8485E;
-color: white;
-}</string>
-               </property>
-               <property name="text">
-                <string>IMMO PROG|DECODE</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QPushButton" name="button_10">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
-               <property name="minimumSize">
-                <size>
-                 <width>0</width>
-                 <height>30</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>16777215</width>
-                 <height>35</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">#button_10 {
-background-color: #FFEDDB;
-color: black;
-}
-#button_10:hover {
-background-color: #F8485E;
-color: white;
-}</string>
-               </property>
-               <property name="text">
-                <string>IMMO EEPROM Location</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QPushButton" name="button_13">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
-               <property name="minimumSize">
-                <size>
-                 <width>0</width>
-                 <height>30</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>16777215</width>
-                 <height>35</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">#button_13 {
-background-color: #FFEDDB;
-color: black;
-}
-#button_13:hover {
-background-color: #F8485E;
-color: white;
-}</string>
-               </property>
-               <property name="text">
-                <string>IMMO BOX Pinout|Wiring</string>
+                <string>Airbag Reprog</string>
                </property>
               </widget>
              </item>
@@ -648,55 +434,493 @@ color: white;
            </widget>
           </item>
           <item>
-           <widget class="QFrame" name="frame_right">
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>0</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>100</width>
-              <height>16777215</height>
-             </size>
-            </property>
+           <widget class="QFrame" name="frame_6">
             <property name="frameShape">
              <enum>QFrame::StyledPanel</enum>
             </property>
             <property name="frameShadow">
              <enum>QFrame::Raised</enum>
             </property>
-            <layout class="QHBoxLayout" name="horizontalLayout_7">
+            <layout class="QVBoxLayout" name="verticalLayout_7">
              <item>
-              <widget class="QComboBox" name="comboBox">
+              <widget class="QPushButton" name="button_14">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
                <property name="minimumSize">
                 <size>
                  <width>0</width>
-                 <height>30</height>
+                 <height>0</height>
                 </size>
                </property>
-               <property name="styleSheet">
-                <string notr="true">font-size: 15px;</string>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>16777215</height>
+                </size>
                </property>
-               <item>
-                <property name="text">
-                 <string>English</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>French</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Portugeuse</string>
-                </property>
-               </item>
+               <property name="toolTip">
+                <string>ECU Repair|Pinout</string>
+               </property>
+               <property name="toolTipDuration">
+                <number>2000</number>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="checkable">
+                <bool>true</bool>
+               </property>
+               <property name="checked">
+                <bool>false</bool>
+               </property>
+               <property name="flat">
+                <bool>false</bool>
+               </property>
+              </widget>
+             </item>
+             <item alignment="Qt::AlignHCenter">
+              <widget class="QLabel" name="label_5">
+               <property name="text">
+                <string>ECU Repair|Pinout</string>
+               </property>
               </widget>
              </item>
             </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QFrame" name="frame_7">
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_8">
+             <item>
+              <widget class="QPushButton" name="button_11">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="toolTip">
+                <string>Dashboard Repair and Reset</string>
+               </property>
+               <property name="toolTipDuration">
+                <number>2000</number>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="checkable">
+                <bool>true</bool>
+               </property>
+               <property name="checked">
+                <bool>false</bool>
+               </property>
+               <property name="flat">
+                <bool>false</bool>
+               </property>
+              </widget>
+             </item>
+             <item alignment="Qt::AlignHCenter">
+              <widget class="QLabel" name="label_6">
+               <property name="text">
+                <string>Dashboard Repair|Reset</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QFrame" name="frame_8">
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_9">
+             <item>
+              <widget class="QPushButton" name="button_16">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="toolTip">
+                <string>ECU Troubleshooting</string>
+               </property>
+               <property name="toolTipDuration">
+                <number>2000</number>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="checkable">
+                <bool>true</bool>
+               </property>
+               <property name="checked">
+                <bool>false</bool>
+               </property>
+               <property name="flat">
+                <bool>false</bool>
+               </property>
+              </widget>
+             </item>
+             <item alignment="Qt::AlignHCenter">
+              <widget class="QLabel" name="label_7">
+               <property name="text">
+                <string>ECU Troubleshooting</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QFrame" name="frame_11">
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_13">
+             <item>
+              <widget class="QPushButton" name="button_9">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="toolTip">
+                <string>Electronics</string>
+               </property>
+               <property name="toolTipDuration">
+                <number>2000</number>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="checkable">
+                <bool>true</bool>
+               </property>
+               <property name="checked">
+                <bool>false</bool>
+               </property>
+               <property name="flat">
+                <bool>false</bool>
+               </property>
+              </widget>
+             </item>
+             <item alignment="Qt::AlignHCenter">
+              <widget class="QLabel" name="label_8">
+               <property name="text">
+                <string>Electronics</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QFrame" name="frame_12">
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_14">
+             <item>
+              <widget class="QPushButton" name="button_17">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="toolTip">
+                <string>ECU Datasheet</string>
+               </property>
+               <property name="toolTipDuration">
+                <number>2000</number>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="checkable">
+                <bool>true</bool>
+               </property>
+               <property name="checked">
+                <bool>false</bool>
+               </property>
+               <property name="flat">
+                <bool>false</bool>
+               </property>
+              </widget>
+             </item>
+             <item alignment="Qt::AlignHCenter">
+              <widget class="QLabel" name="label_9">
+               <property name="text">
+                <string>ECU Datasheet</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QFrame" name="frame_9">
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_11">
+             <item>
+              <widget class="QPushButton" name="button_15">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="toolTip">
+                <string>Immobilizer Prog|Decode</string>
+               </property>
+               <property name="toolTipDuration">
+                <number>2000</number>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="checkable">
+                <bool>true</bool>
+               </property>
+               <property name="checked">
+                <bool>false</bool>
+               </property>
+               <property name="flat">
+                <bool>false</bool>
+               </property>
+              </widget>
+             </item>
+             <item alignment="Qt::AlignHCenter">
+              <widget class="QLabel" name="label_10">
+               <property name="text">
+                <string>IMMO PROG|DECODE</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QFrame" name="frame_13">
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_10">
+             <item>
+              <widget class="QPushButton" name="button_13">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="toolTip">
+                <string>Immobilizer Box Pinout|Wiring</string>
+               </property>
+               <property name="toolTipDuration">
+                <number>2000</number>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="checkable">
+                <bool>true</bool>
+               </property>
+               <property name="checked">
+                <bool>false</bool>
+               </property>
+               <property name="flat">
+                <bool>false</bool>
+               </property>
+              </widget>
+             </item>
+             <item alignment="Qt::AlignHCenter">
+              <widget class="QLabel" name="label_11">
+               <property name="text">
+                <string>IMMO Box Pinout|Wiring</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QFrame" name="frame_10">
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_12">
+             <item>
+              <widget class="QPushButton" name="button_10">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="toolTip">
+                <string>Immobilizer EEPROM Location</string>
+               </property>
+               <property name="toolTipDuration">
+                <number>2000</number>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="checkable">
+                <bool>true</bool>
+               </property>
+               <property name="checked">
+                <bool>false</bool>
+               </property>
+               <property name="flat">
+                <bool>false</bool>
+               </property>
+              </widget>
+             </item>
+             <item alignment="Qt::AlignHCenter">
+              <widget class="QLabel" name="label_12">
+               <property name="text">
+                <string>IMMO EEPROM Location</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="comboBox">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">font-size: 15px;</string>
+            </property>
+            <item>
+             <property name="text">
+              <string>English</string>
+             </property>
+            </item>
            </widget>
           </item>
          </layout>
@@ -710,6 +934,9 @@ background-color: #D1D1D1;
 }
 QListView {
 background-color: white;
+}
+#view, #groupBox_2, #groupBox_3 {
+background-color: #D1D1D1;
 }</string>
          </property>
          <property name="frameShape">
@@ -753,7 +980,11 @@ background-color: white;
                 </size>
                </property>
                <property name="styleSheet">
-                <string notr="true">border: 2px solid #EFEFEF;</string>
+                <string notr="true">#groupBox_3 {
+border: 2px solid #EFEFEF;
+background-color: #D1D1D1;
+border-radius: 10px;
+}</string>
                </property>
                <property name="title">
                 <string>Car Brand</string>
@@ -766,7 +997,14 @@ background-color: white;
                  <number>30</number>
                 </property>
                 <item>
-                 <widget class="QTreeView" name="dropdown_tree"/>
+                 <widget class="QTreeView" name="dropdown_tree">
+                  <property name="iconSize">
+                   <size>
+                    <width>40</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </widget>
                 </item>
                </layout>
               </widget>
@@ -785,12 +1023,32 @@ background-color: white;
                  <height>480</height>
                 </size>
                </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton {
+background-color: grey;
+color: white;
+}</string>
+               </property>
                <property name="frameShape">
                 <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="frameShadow">
                 <enum>QFrame::Raised</enum>
                </property>
+               <layout class="QVBoxLayout" name="verticalLayout_15">
+                <property name="leftMargin">
+                 <number>0</number>
+                </property>
+                <property name="topMargin">
+                 <number>0</number>
+                </property>
+                <property name="rightMargin">
+                 <number>0</number>
+                </property>
+                <property name="bottomMargin">
+                 <number>0</number>
+                </property>
+               </layout>
               </widget>
              </item>
              <item>
@@ -802,7 +1060,11 @@ background-color: white;
                 </size>
                </property>
                <property name="styleSheet">
-                <string notr="true">border: 2px solid #EFEFEF;</string>
+                <string notr="true">#groupBox_2 {
+border: 2px solid #EFEFEF;
+background-color: #D1D1D1;
+border-radius: 10px;
+}</string>
                </property>
                <property name="title">
                 <string>Model</string>
@@ -840,13 +1102,13 @@ background-color: white;
          <property name="minimumSize">
           <size>
            <width>0</width>
-           <height>40</height>
+           <height>70</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
            <width>16777215</width>
-           <height>80</height>
+           <height>70</height>
           </size>
          </property>
          <property name="styleSheet">
@@ -862,7 +1124,7 @@ font-size: 15px;</string>
          </property>
          <layout class="QHBoxLayout" name="horizontalLayout_5">
           <property name="spacing">
-           <number>0</number>
+           <number>20</number>
           </property>
           <property name="leftMargin">
            <number>0</number>
@@ -877,6 +1139,61 @@ font-size: 15px;</string>
            <number>0</number>
           </property>
           <item>
+           <widget class="QFrame" name="frame_2">
+            <property name="maximumSize">
+             <size>
+              <width>50</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_16">
+             <property name="spacing">
+              <number>0</number>
+             </property>
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>0</number>
+             </property>
+             <item>
+              <widget class="QPushButton" name="logo_button">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">border: none;</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>50</width>
+                 <height>55</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
            <widget class="QLabel" name="label_3">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
@@ -885,10 +1202,98 @@ font-size: 15px;</string>
              </sizepolicy>
             </property>
             <property name="text">
-             <string>Software Signed by - CarTronic</string>
+             <string>Copyright ©️ 2022- Powered by LockSmith Inos Mechatronics services. All rights reserved</string>
             </property>
             <property name="margin">
              <number>4</number>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="whatsapp_button">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>150</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="accessibleName">
+             <string/>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: gray;</string>
+            </property>
+            <property name="text">
+             <string>+237 676634413</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="gmail_button">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>150</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="accessibleName">
+             <string/>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: gray;</string>
+            </property>
+            <property name="text">
+             <string>clivcb56@gmail.com</string>
+            </property>
+           </widget>
+          </item>
+          <item alignment="Qt::AlignRight">
+           <widget class="QLabel" name="book_status">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Status:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="message">
+            <property name="focusPolicy">
+             <enum>Qt::StrongFocus</enum>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: #49FF00;</string>
+            </property>
+            <property name="text">
+             <string/>
             </property>
            </widget>
           </item>
@@ -930,7 +1335,6 @@ font-size: 15px;</string>
             </property>
             <property name="styleSheet">
              <string notr="true">QSizeGrip {
-	background-image: url('Assets/icons/24x24/cil-size-grip');
 	background-position: center;
 	background-repeat: no-reperat;
 }</string>
@@ -952,8 +1356,6 @@ font-size: 15px;</string>
    </layout>
   </widget>
  </widget>
- <resources>
-  <include location="../concept/Simple_PySide_Base/files.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

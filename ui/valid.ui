@@ -6,55 +6,19 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>524</width>
-    <height>372</height>
+    <width>438</width>
+    <height>262</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="ValidationWindow">
-   <widget class="QLineEdit" name="license_box">
+   <widget class="QPushButton" name="close_button">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>230</y>
-      <width>441</width>
-      <height>41</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLabel" name="id_label">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>100</y>
-      <width>161</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>HARDWARE ID</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="key_label">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
+      <x>290</x>
       <y>200</y>
-      <width>441</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>ENTER LICENSE KEY (aaaaa-bbbbb-ccccc-ddddd-eeeee)</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="confirm">
-    <property name="geometry">
-     <rect>
-      <x>370</x>
-      <y>310</y>
       <width>111</width>
       <height>41</height>
      </rect>
@@ -66,37 +30,16 @@
      </sizepolicy>
     </property>
     <property name="text">
-     <string>CONFIRM</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="hardware_id_label">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>130</y>
-      <width>441</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="autoFillBackground">
-     <bool>false</bool>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 255);
-border: 1px solid black;
-</string>
-    </property>
-    <property name="text">
-     <string/>
+     <string>Exit</string>
     </property>
    </widget>
    <widget class="QLabel" name="header_text">
     <property name="geometry">
      <rect>
-      <x>110</x>
-      <y>30</y>
-      <width>321</width>
-      <height>51</height>
+      <x>30</x>
+      <y>40</y>
+      <width>401</width>
+      <height>141</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -105,7 +48,10 @@ font-size: 20px;
 </string>
     </property>
     <property name="text">
-     <string>ECU ProTech License 2022</string>
+     <string>Sorry, Software License Is Either Invalid Or You are not a Licensed User. Contact The Software Owner for a License</string>
+    </property>
+    <property name="wordWrap">
+     <bool>true</bool>
     </property>
    </widget>
   </widget>
