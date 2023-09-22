@@ -1,10 +1,15 @@
 build:
-	pyinstaller spec.py
+	pyinstaller "Cartronic Prog.spec"
+
+build-decomp:
+	pyinstaller "Catronic Decompiler V1.0.spec"
 
 install:
 	pip install -r requirements.txt
 
 run:
 	python main.py
+
+
 
 launch: install, run 
