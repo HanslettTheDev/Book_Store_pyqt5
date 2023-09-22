@@ -28,7 +28,7 @@ exe = EXE(
     a.zipfiles,
     a.datas,
     [],
-    name='Cartronic Decompiler V1.0',
+    name='Cartronic Decompiler',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,

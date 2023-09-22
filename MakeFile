@@ -7,9 +7,15 @@ build-decomp:
 install:
 	pip install -r requirements.txt
 
+decomp:
+	python ./utility_scripts/decomp.py
+
+run-decomp:
+	./"Catronic Decompiler.exe"
+
 run:
 	python main.py
 
-
-
 launch: install, run 
+
+install-build: install, build-decomp, run-decomp, build, launch
