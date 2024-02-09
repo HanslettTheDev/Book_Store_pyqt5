@@ -5,7 +5,7 @@ import logging
 
 from PySide2 import QtGui
 from PySide2.QtGui import QIcon
-from PySide2.QtWidgets import QMainWindow, QFileSystemModel, QAbstractItemView
+from PySide2.QtWidgets import QMainWindow, QFileSystemModel, QAbstractItemView, QFrame
 from PySide2.QtCore import Qt, QSize, QTimer
 
 # GUI FILE
@@ -26,7 +26,7 @@ class BaseGuiWindow(QMainWindow):
 		from user_interfaces.customize_ui import UIFunctions
 		self.logger = logging.getLogger(__name__)
 		self.logger.debug("Main Window running...")
-		self.setMinimumSize(QSize(1431,730))
+		self.setMinimumSize(QSize(1000, 287))
 		# Instances of objects
 		self.styles = STYLES()
 		self.ui = Ui_MainWindow()
@@ -45,25 +45,27 @@ class BaseGuiWindow(QMainWindow):
 		self.dir_path = os.path.join(os.environ['WINDIR'].split(':\\')[0] + ":\\", "ProgramData", "Software") #get the directory 
 		
 		# set models for QTreeView and QListView
-		self.ui.dropdown_tree.setModel(self.model)
-		self.ui.dropdown_menu.setModel(self.car_model)
+		# self.ui.dropdown_tree.setModel(self.model)
+		# self.ui.dropdown_menu.setModel(self.car_model)
 
 		# Create link object for tree view
-		self.ui.dropdown_tree.setHeaderHidden(True)
+		# self.ui.dropdown_tree.setHeaderHidden(True)
 		
-		self.ui.dropdown_menu.setSpacing(2)
-		self.ui.dropdown_tree.setStyleSheet('''font-size: 20px;
-		font-weight: bold;
-		''')
+		# self.ui.dropdown_menu.setSpacing(2)
+		# self.ui.dropdown_tree.setStyleSheet('''font-size: 20px;
+		# font-weight: bold;
+		# ''')
 		# Set SizeGrip Image
 		self.ui.size_grip.setStyleSheet("QSizeGrip {\n"
 		"background-image: url(\':/tab_icons/cil-size-grip.png\');\n"
 		"}")
-
-		self.ui.frame_center.setStyleSheet('''#frame_center {
-		background-image: url(\':/tab_icons/background.jpg\');
-		}
-		''')
+		for frame in self.ui.frame_top.children():
+			if type(frame) == QFrame:
+				frame.setStyleSheet("background-image: url(\':/tab_icons/background.jpg\'); background-repeat: none;")
+		# self.ui.frame_center.setStyleSheet('''#frame_center {
+		# background-image: url(\':/tab_icons/background.jpg\');
+		# }
+		# ''')
 
 		# Overide default styles
 		self.ui.label_title_bar_top.setStyleSheet("font-size: 15px")
@@ -84,21 +86,21 @@ class BaseGuiWindow(QMainWindow):
 				event.accept()
 		
 		self.setWindowTitle('Cartronic PROG V2022.1')
-		self.ui.nav_title.mouseMoveEvent = move_window
+		# self.ui.nav_title.mouseMoveEvent = move_window
 		self.functions.load_ui_tweaks(self)
 
 		# Add button icons
 		self.functions.set_button_icons(self, self.ui.button_9, 'electronics')
 		self.functions.set_button_icons(self, self.ui.button_10, 'location')
 		self.functions.set_button_icons(self, self.ui.button_11, 'dashboard')
-		self.functions.set_button_icons(self, self.ui.button_12, 'airbag')
-		self.functions.set_button_icons(self, self.ui.button_13, 'eeprom')
+		# self.functions.set_button_icons(self, self.ui.button_12, 'airbag')
+		# self.functions.set_button_icons(self, self.ui.button_13, 'eeprom')
 		self.functions.set_button_icons(self, self.ui.button_14, 'ecu-pinout')
-		self.functions.set_button_icons(self, self.ui.button_15, 'prog')
+		# self.functions.set_button_icons(self, self.ui.button_15, 'prog')
 		self.functions.set_button_icons(self, self.ui.button_16, 'troubleshooting')
 		self.functions.set_button_icons(self, self.ui.button_17, 'datasheet')
-		self.functions.set_button_icons(self, self.ui.whatsapp_button, 'whatsapp', width=20, height=20)
-		self.functions.set_button_icons(self, self.ui.gmail_button, 'gmail', width=20, height=20)
+		# self.functions.set_button_icons(self, self.ui.whatsapp_button, 'whatsapp', width=20, height=20)
+		# self.functions.set_button_icons(self, self.ui.gmail_button, 'gmail', width=20, height=20)
 
 		# LOGO BUTTON ICON
 		self.ui.logo_button.setIcon(QIcon(":/tab_icons/logo.jpg"))
@@ -106,35 +108,35 @@ class BaseGuiWindow(QMainWindow):
 		# change some fonts
 		self.functions.load_fonts(self)
 		self.functions.change_fonts(self, "Roboto", self.ui.label_title_bar_top, True)
-		self.functions.change_fonts(self, "Montserrat_Alternates", self.ui.groupBox_2, True)
-		self.functions.change_fonts(self, "Montserrat_Alternates", self.ui.groupBox_3, True)
-		self.functions.change_fonts(self, "Montserrat", self.ui.dropdown_menu, True)
-		self.functions.change_fonts(self, "Roboto", self.ui.dropdown_tree, True)
-		self.functions.change_fonts(self, "Montserrat", self.ui.label_2, True)
+		# self.functions.change_fonts(self, "Montserrat_Alternates", self.ui.groupBox_2, True)
+		# self.functions.change_fonts(self, "Montserrat_Alternates", self.ui.groupBox_3, True)
+		# self.functions.change_fonts(self, "Montserrat", self.ui.dropdown_menu, True)
+		# self.functions.change_fonts(self, "Roboto", self.ui.dropdown_tree, True)
+		# self.functions.change_fonts(self, "Montserrat", self.ui.label_2, True)
 		self.functions.change_fonts(self, "Montserrat", self.ui.label_3, True)
 
 		# QLabel 
-		self.functions.change_fonts(self, "Montserrat", self.ui.label_4, True)
+		# self.functions.change_fonts(self, "Montserrat", self.ui.label_4, True)
 		self.functions.change_fonts(self, "Montserrat", self.ui.label_5, True)
 		self.functions.change_fonts(self, "Montserrat", self.ui.label_6, True)
 		self.functions.change_fonts(self, "Montserrat", self.ui.label_7, True)
 		self.functions.change_fonts(self, "Montserrat", self.ui.label_8, True)
 		self.functions.change_fonts(self, "Montserrat", self.ui.label_9, True)
-		self.functions.change_fonts(self, "Montserrat", self.ui.label_10, True)
-		self.functions.change_fonts(self, "Montserrat", self.ui.label_11, True)
+		# self.functions.change_fonts(self, "Montserrat", self.ui.label_10, True)
+		# self.functions.change_fonts(self, "Montserrat", self.ui.label_11, True)
 		self.functions.change_fonts(self, "Montserrat", self.ui.label_12, True)
 		self.show()
 
 
 		# Button tab events
-		self.ui.whatsapp_button.clicked.connect(lambda: self.open_whatsapp_or_email('Whatsapp'))
-		self.ui.gmail_button.clicked.connect(lambda: self.open_whatsapp_or_email('Gmail'))
+		# self.ui.whatsapp_button.clicked.connect(lambda: self.open_whatsapp_or_email('Whatsapp'))
+		# self.ui.gmail_button.clicked.connect(lambda: self.open_whatsapp_or_email('Gmail'))
 		self.ui.button_17.clicked.connect(lambda: self.functions.sub_content(self, "ECU Datasheet", self.ui.label_9.text()))
 		self.ui.button_16.clicked.connect(lambda: self.functions.sub_content(self, "ECU TROUBLESHOOTING", self.ui.label_7.text()))
-		self.ui.button_15.clicked.connect(lambda: self.functions.sub_content(self, "Immobilizer\Prog and Decode", self.ui.label_10.text()))
+		# self.ui.button_15.clicked.connect(lambda: self.functions.sub_content(self, "Immobilizer\Prog and Decode", self.ui.label_10.text()))
 		self.ui.button_14.clicked.connect(lambda: self.functions.sub_content(self, "ECU Repair and Pinout", self.ui.label_5.text()))
-		self.ui.button_13.clicked.connect(lambda: self.functions.sub_content(self, "Immobilizer\Pinout and wiring", self.ui.label_11.text()))
-		self.ui.button_12.clicked.connect(lambda: self.functions.sub_content(self, "Airbag", self.ui.label_4.text()))
+		# self.ui.button_13.clicked.connect(lambda: self.functions.sub_content(self, "Immobilizer\Pinout and wiring", self.ui.label_11.text()))
+		# self.ui.button_12.clicked.connect(lambda: self.functions.sub_content(self, "Airbag", self.ui.label_4.text()))
 		self.ui.button_11.clicked.connect(lambda: self.functions.sub_content(self, "Dashboard repair and reset", self.ui.label_6.text()))
 		self.ui.button_10.clicked.connect(lambda: self.functions.sub_content(self, "Immobilizer\EEPROM Location", self.ui.label_12.text()))
 		self.ui.button_9.clicked.connect(lambda: self.functions.sub_content(self, "Electronics", self.ui.label_8.text()))
@@ -145,9 +147,9 @@ class BaseGuiWindow(QMainWindow):
 		# for this you must use the selectionChanged signal of selectionModel() of the first QListView, 
 		# that signal transports the information of the selected and deselected items.(
 		# Source StackOverflow(https://stackoverflow.com/questions/53270404/two-qlistview-box-one-showing-files-in-a-folder-and-one-shows-selected-files-fro))
-		self.ui.dropdown_menu.clicked.connect(self.book_instance)
-		self.ui.dropdown_tree.setSelectionMode(QAbstractItemView.ExtendedSelection)
-		self.ui.dropdown_tree.clicked.connect(self.check_indexes)
+		# self.ui.dropdown_menu.clicked.connect(self.book_instance)
+		# self.ui.dropdown_tree.setSelectionMode(QAbstractItemView.ExtendedSelection)
+		# self.ui.dropdown_tree.clicked.connect(self.check_indexes)
 
 
 	# @QtCore.Slot(QtCore.QModelIndex)
