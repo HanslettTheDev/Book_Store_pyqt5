@@ -445,7 +445,7 @@ font-size: 16px;
                 <string>ECU TROUBLESHOOTNG</string>
                </property>
                <property name="wordWrap">
-                <bool>true</bool>
+                <bool>false</bool>
                </property>
               </widget>
              </item>
@@ -549,7 +549,7 @@ font-size: 16px;
                 <string>EEPEOM FINDER</string>
                </property>
                <property name="wordWrap">
-                <bool>true</bool>
+                <bool>false</bool>
                </property>
               </widget>
              </item>
@@ -647,7 +647,7 @@ font-size: 16px;
                 <string>ECU REPAIR</string>
                </property>
                <property name="wordWrap">
-                <bool>true</bool>
+                <bool>false</bool>
                </property>
               </widget>
              </item>
@@ -745,7 +745,7 @@ font-size: 16px;
                 <string>ECU DATASHEET</string>
                </property>
                <property name="wordWrap">
-                <bool>true</bool>
+                <bool>false</bool>
                </property>
               </widget>
              </item>
@@ -843,7 +843,7 @@ font-size: 16px;
                 <string>ELECTRONICS</string>
                </property>
                <property name="wordWrap">
-                <bool>true</bool>
+                <bool>false</bool>
                </property>
               </widget>
              </item>
@@ -941,7 +941,7 @@ font-size: 16px;
                 <string>DASHBOARD REPAIR</string>
                </property>
                <property name="wordWrap">
-                <bool>true</bool>
+                <bool>false</bool>
                </property>
               </widget>
              </item>

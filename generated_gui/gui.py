@@ -208,7 +208,7 @@ class Ui_MainWindow(object):
         self.label_7.setMinimumSize(QSize(0, 0))
         self.label_7.setMaximumSize(QSize(16777215, 16777215))
         self.label_7.setStyleSheet(u"")
-        self.label_7.setWordWrap(True)
+        self.label_7.setWordWrap(False)
 
         self.verticalLayout_9.addWidget(self.label_7, 0, Qt.AlignHCenter)
 
@@ -247,7 +247,7 @@ class Ui_MainWindow(object):
         self.label_12.setObjectName(u"label_12")
         self.label_12.setMinimumSize(QSize(0, 0))
         self.label_12.setMaximumSize(QSize(16777215, 16777215))
-        self.label_12.setWordWrap(True)
+        self.label_12.setWordWrap(False)
 
         self.verticalLayout_2.addWidget(self.label_12, 0, Qt.AlignHCenter)
 
@@ -281,7 +281,7 @@ class Ui_MainWindow(object):
         self.label_5.setObjectName(u"label_5")
         self.label_5.setMinimumSize(QSize(0, 0))
         self.label_5.setMaximumSize(QSize(16777215, 16777215))
-        self.label_5.setWordWrap(True)
+        self.label_5.setWordWrap(False)
 
         self.verticalLayout_7.addWidget(self.label_5, 0, Qt.AlignHCenter)
 
@@ -315,7 +315,7 @@ class Ui_MainWindow(object):
         self.label_9.setObjectName(u"label_9")
         self.label_9.setMinimumSize(QSize(0, 0))
         self.label_9.setMaximumSize(QSize(16777215, 16777215))
-        self.label_9.setWordWrap(True)
+        self.label_9.setWordWrap(False)
 
         self.verticalLayout_4.addWidget(self.label_9, 0, Qt.AlignHCenter)
 
@@ -349,7 +349,7 @@ class Ui_MainWindow(object):
         self.label_8.setObjectName(u"label_8")
         self.label_8.setMinimumSize(QSize(0, 0))
         self.label_8.setMaximumSize(QSize(16777215, 16777215))
-        self.label_8.setWordWrap(True)
+        self.label_8.setWordWrap(False)
 
         self.verticalLayout_3.addWidget(self.label_8, 0, Qt.AlignHCenter)
 
@@ -383,7 +383,7 @@ class Ui_MainWindow(object):
         self.label_6.setObjectName(u"label_6")
         self.label_6.setMinimumSize(QSize(0, 0))
         self.label_6.setMaximumSize(QSize(16777215, 16777215))
-        self.label_6.setWordWrap(True)
+        self.label_6.setWordWrap(False)
 
         self.verticalLayout_8.addWidget(self.label_6, 0, Qt.AlignHCenter)
 

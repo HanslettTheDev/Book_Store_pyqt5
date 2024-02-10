@@ -126,5 +126,6 @@
     <file alias="Roboto-Regular.ttf">resources/fonts/Roboto/Roboto-Regular.ttf</file>
     <file alias="Roboto-Thin.ttf">resources/fonts/Roboto/Roboto-Thin.ttf</file>
     <file alias="Roboto-ThinItalic.ttf">resources/fonts/Roboto/Roboto-ThinItalic.ttf</file>
+    <file alias="home-image.png">resources/tab_icons/home-image.png</file>
 </qresource>
 </RCC>
