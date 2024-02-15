@@ -6,4 +6,6 @@ pdfjs
 resources.py
 resources_rc.py
 env
+manifest
 __pycache__
+.exe
