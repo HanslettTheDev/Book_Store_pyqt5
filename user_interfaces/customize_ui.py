@@ -70,33 +70,34 @@ class UIFunctions(BaseGuiWindow):
 		self.close()
 	
 	def sub_content(self, main_content, label):
+		self.ui.frame_main.layout().insertWidget(2, self.tab_display)
 		# Button active state
 		self.functions.check_ischecked(self)
 		# Set rootpath per button clicked and rootIndex
 		self.model.setRootPath(os.path.join(self.dir_path, f"Prog/index/Lib/{main_content}"))
 		# set model filter to filter only files to the second list view
 		self.model.setFilter(QtCore.QDir.NoDotAndDotDot | QtCore.QDir.AllDirs)
-		self.ui.dropdown_tree.setModel(self.model)
-		self.ui.dropdown_tree.setRootIndex(self.model.index(os.path.join(self.dir_path, f"Prog/index/Lib/{main_content}")))
-		self.ui.dropdown_tree.setColumnWidth(0,250)
-		self.ui.dropdown_tree.setAlternatingRowColors(True)
+		self.tab_display.ui.dropdown_tree.setModel(self.model)
+		self.tab_display.ui.dropdown_tree.setRootIndex(self.model.index(os.path.join(self.dir_path, f"Prog/index/Lib/{main_content}")))
+		self.tab_display.ui.dropdown_tree.setColumnWidth(0,250)
+		self.tab_display.ui.dropdown_tree.setAlternatingRowColors(True)
 		# Hide the file type, folder size and date created columns
-		self.ui.dropdown_tree.hideColumn(1)
-		self.ui.dropdown_tree.hideColumn(2)
-		self.ui.dropdown_tree.hideColumn(3)
+		self.tab_display.ui.dropdown_tree.hideColumn(1)
+		self.tab_display.ui.dropdown_tree.hideColumn(2)
+		self.tab_display.ui.dropdown_tree.hideColumn(3)
 		# Set the label to the button clicked
 		if main_content == "Immobilizer\EEPROM Location":
-			self.ui.groupBox_3.setTitle("IMMO Data") 
-			self.ui.groupBox_2.setTitle(f"{label}")
+			self.tab_display.ui.groupBox_3.setTitle("IMMO Data") 
+			self.tab_display.ui.groupBox_2.setTitle(f"{label}")
 		elif main_content == "ECU Datasheet":
-			self.ui.groupBox_3.setTitle("Manufacturer") 
-			self.ui.groupBox_2.setTitle(f"{label}")
+			self.tab_display.ui.groupBox_3.setTitle("Manufacturer") 
+			self.tab_display.ui.groupBox_2.setTitle(f"{label}")
 		elif main_content == "Electronics":
-			self.ui.groupBox_3.setTitle("Electrical/Electronic Manuals")
-			self.ui.groupBox_2.setTitle(f"{label}")
+			self.tab_display.ui.groupBox_3.setTitle("Electrical/Electronic Manuals")
+			self.tab_display.ui.groupBox_2.setTitle(f"{label}")
 		else:
-			self.ui.groupBox_3.setTitle("Car Model")
-			self.ui.groupBox_2.setTitle(f"{label}")
+			self.tab_display.ui.groupBox_3.setTitle("Car Model")
+			self.tab_display.ui.groupBox_2.setTitle(f"{label}")
 	
 	def set_window_icons(self, url, button):
 		icon = QIcon()
@@ -124,9 +125,9 @@ class UIFunctions(BaseGuiWindow):
 		# change some fonts
 	
 	def check_ischecked(self):
-		all_buttons = self.ui.frame_top.findChildren(QPushButton)
-		for button in all_buttons:
+		for button in self.ui.frame_top.findChildren(QPushButton):
 			if button.isChecked():
+				print(button.text())
 				button.setStyleSheet("background-color: rgb(98, 88, 153);")
 				button.setCheckable(False)
 			else:

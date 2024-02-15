@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>895</width>
-    <height>287</height>
+    <width>1049</width>
+    <height>475</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -318,23 +318,10 @@ background-color: #F7E2E2;
           </size>
          </property>
          <property name="styleSheet">
-          <string notr="true">QFrame {
-background-color: grey; 
-border-radius: 15px; 
-padding: 2px;
-}
-#frame_top {
+          <string notr="true">#frame_top {
 color: white;
 background: #1c242c;
 border-radius: 0px;
-}
-QPushButton {
-background-color: white;
-font-size: 15px;
-border-radius: 15px;
-}
-QPushButton:hover {
-background-color: #F0E5CF;
 }
 QLabel {
 color: white;
@@ -455,7 +442,7 @@ font-size: 16px;
           <item>
            <widget class="QFrame" name="frame_10">
             <property name="sizePolicy">
-             <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
               <horstretch>0</horstretch>
               <verstretch>0</verstretch>
              </sizepolicy>
@@ -1142,6 +1129,9 @@ padding: 10px;</string>
         </widget>
        </item>
       </layout>
+      <zorder>window_bar</zorder>
+      <zorder>footer</zorder>
+      <zorder>frame_top</zorder>
      </widget>
     </item>
    </layout>

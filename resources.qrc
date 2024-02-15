@@ -76,6 +76,7 @@
     <file alias="location.png">resources/tab_icons/location.png</file>
     <file alias="prog.png">resources/tab_icons/prog.png</file>
     <file alias="troubleshooting.png">resources/tab_icons/troubleshooting.png</file>
+    <file alias="home-image.png">resources/tab_icons/home-image.png</file>
 </qresource>
 <qresource prefix="fonts">
     <file alias="Montserrat-Black.ttf">resources/fonts/Montserrat/Montserrat-Black.ttf</file>
@@ -126,6 +127,5 @@
     <file alias="Roboto-Regular.ttf">resources/fonts/Roboto/Roboto-Regular.ttf</file>
     <file alias="Roboto-Thin.ttf">resources/fonts/Roboto/Roboto-Thin.ttf</file>
     <file alias="Roboto-ThinItalic.ttf">resources/fonts/Roboto/Roboto-ThinItalic.ttf</file>
-    <file alias="home-image.png">resources/tab_icons/home-image.png</file>
-</qresource>
+   </qresource>
 </RCC>

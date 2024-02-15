@@ -4,8 +4,9 @@ import webbrowser
 import logging
 
 from PySide2 import QtGui
-from PySide2.QtGui import QIcon
-from PySide2.QtWidgets import QMainWindow, QFileSystemModel, QAbstractItemView, QFrame
+from PySide2.QtGui import QIcon, QColor
+from PySide2.QtWidgets import (QMainWindow, QFileSystemModel, QAbstractItemView, 
+    QFrame, QGraphicsDropShadowEffect, QPushButton, QHBoxLayout)
 from PySide2.QtCore import Qt, QSize, QTimer
 
 # GUI FILE
@@ -18,6 +19,7 @@ from stylesheet import STYLES
 from user_interfaces import TempPath
 from user_interfaces.utils import FileIconProvider
 from user_interfaces.pdf_viewer import PDFWindow
+from user_interfaces.tab_display_window import TabDisplay
 
 class BaseGuiWindow(QMainWindow):
 	# IMPORT fUNCTIONS
@@ -26,10 +28,11 @@ class BaseGuiWindow(QMainWindow):
 		from user_interfaces.customize_ui import UIFunctions
 		self.logger = logging.getLogger(__name__)
 		self.logger.debug("Main Window running...")
-		self.setMinimumSize(QSize(1000, 287))
+		self.setMinimumSize(QSize(1100, 500))
 		# Instances of objects
 		self.styles = STYLES()
 		self.ui = Ui_MainWindow()
+		self.tab_display = TabDisplay()
 		self.model = QFileSystemModel()
 		self.model.setIconProvider(FileIconProvider())
 		# Create ListView Model Object
@@ -61,11 +64,13 @@ class BaseGuiWindow(QMainWindow):
 		"}")
 		for frame in self.ui.frame_top.children():
 			if type(frame) == QFrame:
-				frame.setStyleSheet("background-image: url(\':/tab_icons/background.jpg\'); background-repeat: none;")
-		# self.ui.frame_center.setStyleSheet('''#frame_center {
-		# background-image: url(\':/tab_icons/background.jpg\');
-		# }
-		# ''')
+				frame.setStyleSheet("background-color: #40A2E3; border-radius: 15px; padding: 2px; color: white;")
+				for button in frame.children():
+					if type(button) == QPushButton:
+						button.setStyleSheet("background-color: white; font-size: 15px; border-radius: 15px; color: black")
+		
+		self.ui.frame_top.setStyleSheet("#frame_top {background-image: url(\':/tab_icons/home-image.png\');}")
+		
 
 		# Overide default styles
 		self.ui.label_title_bar_top.setStyleSheet("font-size: 15px")
@@ -77,14 +82,7 @@ class BaseGuiWindow(QMainWindow):
 
 		# ==> BUTTON CONNECTIONS AND FUNCTIONS
 		# self.setStyleSheet(self.styles.default_styles)
-		def move_window(event):
-			if self.functions.return_status() == 1:
-				self.functions.maximize_window()
-			# move window
-			if Qt.LeftButton and self.moveFlag:
-				self.move(event.globalPos() - self.movePosition)
-				event.accept()
-		
+			
 		self.setWindowTitle('Cartronic PROG V2022.1')
 		# self.ui.nav_title.mouseMoveEvent = move_window
 		self.functions.load_ui_tweaks(self)
@@ -127,7 +125,6 @@ class BaseGuiWindow(QMainWindow):
 		self.functions.change_fonts(self, "Montserrat", self.ui.label_12, True)
 		self.show()
 
-
 		# Button tab events
 		# self.ui.whatsapp_button.clicked.connect(lambda: self.open_whatsapp_or_email('Whatsapp'))
 		# self.ui.gmail_button.clicked.connect(lambda: self.open_whatsapp_or_email('Gmail'))
@@ -151,6 +148,9 @@ class BaseGuiWindow(QMainWindow):
 		# self.ui.dropdown_tree.setSelectionMode(QAbstractItemView.ExtendedSelection)
 		# self.ui.dropdown_tree.clicked.connect(self.check_indexes)
 
+		self.dragging = False
+		self.old_pos = None
+
 
 	# @QtCore.Slot(QtCore.QModelIndex)
 	def check_indexes(self, index):
@@ -169,12 +169,6 @@ class BaseGuiWindow(QMainWindow):
 				return_path = os.path.join(index.data(QFileSystemModel.FilePathRole))
 		# print('selected item index found at %s with data: %s' %(index.row(), index.data(QFileSystemModel.FilePathRole)))
 	
-	def progress_bar(self, item):
-		self.ui.message.setText(f" Loading {item} to Viewer")
-		self.timer = QTimer()
-		self.timer.timeout.connect(lambda: self.completed(item))
-		self.timer.start(2000)
-
 	def check_webview_states(self, path, index):
 		if self.webview.windowState() == Qt.WindowMinimized:
 			self.webview.close()
@@ -219,21 +213,26 @@ class BaseGuiWindow(QMainWindow):
 				if filename != file:
 					os.remove(os.path.join(TempPath, file))
 
-
-
 	# MOUSE EVENTS 
 	def mousePressEvent(self, event):
 		if event.button() == Qt.LeftButton:
-			self.moveFlag = True
-			self.movePosition = event.globalPos() - self.pos()
-			event.accept()
+			self.dragging = True
+			self.old_pos = event.globalPos()
+
+
+	def mouseMoveEvent(self, event):
+		if self.dragging:
+			delta = event.globalPos() - self.old_pos
+			self.move(self.x() + delta.x(), self.y() + delta.y())
+			self.old_pos = event.globalPos()
+	
 
 	def mouseReleaseEvent(self, event):
-		self.offset = None
-		super().mouseReleaseEvent(event)  
+		if event.button() == Qt.LeftButton:
+			self.dragging = False  
 	
-	def open_whatsapp_or_email(self, label):
-		if label == "Whatsapp":
-			webbrowser.open("https://wa.me/c/237676634413")
-		else:
-			webbrowser.open("https://google.com")
+	# def open_whatsapp_or_email(self, label):
+	# 	if label == "Whatsapp":
+	# 		webbrowser.open("https://wa.me/c/237676634413")
+	# 	else:
+	# 		webbrowser.open("https://google.com")

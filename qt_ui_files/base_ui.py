@@ -17,7 +17,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(895, 287)
+        MainWindow.resize(1049, 475)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.centralwidget.setMinimumSize(QSize(895, 287))
@@ -153,23 +153,10 @@ class Ui_MainWindow(object):
         self.frame_top.setSizePolicy(sizePolicy)
         self.frame_top.setMinimumSize(QSize(0, 0))
         self.frame_top.setMaximumSize(QSize(16777215, 16777215))
-        self.frame_top.setStyleSheet(u"QFrame {\n"
-"background-color: grey; \n"
-"border-radius: 15px; \n"
-"padding: 2px;\n"
-"}\n"
-"#frame_top {\n"
+        self.frame_top.setStyleSheet(u"#frame_top {\n"
 "color: white;\n"
 "background: #1c242c;\n"
 "border-radius: 0px;\n"
-"}\n"
-"QPushButton {\n"
-"background-color: white;\n"
-"font-size: 15px;\n"
-"border-radius: 15px;\n"
-"}\n"
-"QPushButton:hover {\n"
-"background-color: #F0E5CF;\n"
 "}\n"
 "QLabel {\n"
 "color: white;\n"
@@ -208,7 +195,7 @@ class Ui_MainWindow(object):
         self.label_7.setMinimumSize(QSize(0, 0))
         self.label_7.setMaximumSize(QSize(16777215, 16777215))
         self.label_7.setStyleSheet(u"")
-        self.label_7.setWordWrap(True)
+        self.label_7.setWordWrap(False)
 
         self.verticalLayout_9.addWidget(self.label_7, 0, Qt.AlignHCenter)
 
@@ -217,11 +204,8 @@ class Ui_MainWindow(object):
 
         self.frame_10 = QFrame(self.frame_top)
         self.frame_10.setObjectName(u"frame_10")
-        sizePolicy2 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Expanding)
-        sizePolicy2.setHorizontalStretch(0)
-        sizePolicy2.setVerticalStretch(0)
-        sizePolicy2.setHeightForWidth(self.frame_10.sizePolicy().hasHeightForWidth())
-        self.frame_10.setSizePolicy(sizePolicy2)
+        sizePolicy.setHeightForWidth(self.frame_10.sizePolicy().hasHeightForWidth())
+        self.frame_10.setSizePolicy(sizePolicy)
         self.frame_10.setMaximumSize(QSize(16777215, 130))
         self.frame_10.setFrameShape(QFrame.StyledPanel)
         self.frame_10.setFrameShadow(QFrame.Raised)
@@ -247,7 +231,7 @@ class Ui_MainWindow(object):
         self.label_12.setObjectName(u"label_12")
         self.label_12.setMinimumSize(QSize(0, 0))
         self.label_12.setMaximumSize(QSize(16777215, 16777215))
-        self.label_12.setWordWrap(True)
+        self.label_12.setWordWrap(False)
 
         self.verticalLayout_2.addWidget(self.label_12, 0, Qt.AlignHCenter)
 
@@ -281,7 +265,7 @@ class Ui_MainWindow(object):
         self.label_5.setObjectName(u"label_5")
         self.label_5.setMinimumSize(QSize(0, 0))
         self.label_5.setMaximumSize(QSize(16777215, 16777215))
-        self.label_5.setWordWrap(True)
+        self.label_5.setWordWrap(False)
 
         self.verticalLayout_7.addWidget(self.label_5, 0, Qt.AlignHCenter)
 
@@ -315,7 +299,7 @@ class Ui_MainWindow(object):
         self.label_9.setObjectName(u"label_9")
         self.label_9.setMinimumSize(QSize(0, 0))
         self.label_9.setMaximumSize(QSize(16777215, 16777215))
-        self.label_9.setWordWrap(True)
+        self.label_9.setWordWrap(False)
 
         self.verticalLayout_4.addWidget(self.label_9, 0, Qt.AlignHCenter)
 
@@ -349,7 +333,7 @@ class Ui_MainWindow(object):
         self.label_8.setObjectName(u"label_8")
         self.label_8.setMinimumSize(QSize(0, 0))
         self.label_8.setMaximumSize(QSize(16777215, 16777215))
-        self.label_8.setWordWrap(True)
+        self.label_8.setWordWrap(False)
 
         self.verticalLayout_3.addWidget(self.label_8, 0, Qt.AlignHCenter)
 
@@ -383,7 +367,7 @@ class Ui_MainWindow(object):
         self.label_6.setObjectName(u"label_6")
         self.label_6.setMinimumSize(QSize(0, 0))
         self.label_6.setMaximumSize(QSize(16777215, 16777215))
-        self.label_6.setWordWrap(True)
+        self.label_6.setWordWrap(False)
 
         self.verticalLayout_8.addWidget(self.label_6, 0, Qt.AlignHCenter)
 
@@ -470,6 +454,9 @@ class Ui_MainWindow(object):
 
         self.verticalLayout.addWidget(self.footer)
 
+        self.window_bar.raise_()
+        self.footer.raise_()
+        self.frame_top.raise_()
 
         self.horizontalLayout_2.addWidget(self.frame_main)
 
