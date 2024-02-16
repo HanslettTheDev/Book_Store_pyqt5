@@ -55,9 +55,63 @@ background-color: #D1D1D1;
       <enum>QFrame::Raised</enum>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_4">
-      <property name="leftMargin">
-       <number>9</number>
+      <property name="spacing">
+       <number>0</number>
       </property>
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <item alignment="Qt::AlignRight">
+       <widget class="QPushButton" name="close_button">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>35</width>
+          <height>35</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>35</width>
+          <height>35</height>
+         </size>
+        </property>
+        <property name="toolTip">
+         <string>Close</string>
+        </property>
+        <property name="toolTipDuration">
+         <number>2000</number>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">#close_button {
+text-align: center;
+margin-bottom: 2px;
+background-color: rgb(255, 52, 55);
+}
+
+#close_button:hover {
+background-color: #F7E2E2;
+}</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
       <item>
        <widget class="QFrame" name="view">
         <property name="minimumSize">

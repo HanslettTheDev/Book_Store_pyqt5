@@ -78,13 +78,13 @@ class SplashScreen(QWidget):
 			time.sleep(1)
 			self.main_app = self.verify_license()
 			self.main_app.show()
-		self.counter += 2.5
+		self.counter += 2.75
 
 	def verify_license(self):
 		DIR_PATH = os.getenv('LOCALAPPDATA')
 		FILE = "yagamie.key"
-		if os.path.isfile(os.path.join(DIR_PATH,"yagamie.key")):
-			with open(os.path.join(DIR_PATH,"yagamie.key"), "r") as f:
+		if os.path.isfile(os.path.join(DIR_PATH, FILE)):
+			with open(os.path.join(DIR_PATH, FILE), "r") as f:
 				key = f.readline()
 			chars = key.split("+=")
 			key_id = chars[0]

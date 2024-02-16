@@ -70,21 +70,26 @@ class UIFunctions(BaseGuiWindow):
 		self.close()
 	
 	def sub_content(self, main_content, label):
+		self.tab_display.ui.close_button.clicked.connect(lambda: self.close_tab_window())
+
+		self.tab_display.show()
+		# set the minimum height for the window
+		if self.minimumHeight() < 615:
+			self.setMinimumHeight(625)
+
 		self.ui.frame_main.layout().insertWidget(2, self.tab_display)
 		# Button active state
-		self.functions.check_ischecked(self)
+		self.functions.check_ischecked
 		# Set rootpath per button clicked and rootIndex
-		self.model.setRootPath(os.path.join(self.dir_path, f"Prog/index/Lib/{main_content}"))
+		self.tab_display.model.setRootPath(os.path.join(self.dir_path, f"Prog/index/Lib/{main_content}"))
 		# set model filter to filter only files to the second list view
-		self.model.setFilter(QtCore.QDir.NoDotAndDotDot | QtCore.QDir.AllDirs)
-		self.tab_display.ui.dropdown_tree.setModel(self.model)
-		self.tab_display.ui.dropdown_tree.setRootIndex(self.model.index(os.path.join(self.dir_path, f"Prog/index/Lib/{main_content}")))
-		self.tab_display.ui.dropdown_tree.setColumnWidth(0,250)
-		self.tab_display.ui.dropdown_tree.setAlternatingRowColors(True)
-		# Hide the file type, folder size and date created columns
-		self.tab_display.ui.dropdown_tree.hideColumn(1)
-		self.tab_display.ui.dropdown_tree.hideColumn(2)
-		self.tab_display.ui.dropdown_tree.hideColumn(3)
+		self.tab_display.model.setFilter(QtCore.QDir.NoDotAndDotDot | QtCore.QDir.AllDirs)
+		self.tab_display.ui.dropdown_tree.setRootIndex(
+			self.tab_display.model.index(
+				os.path.join(self.dir_path, f"Prog/index/Lib/{main_content}")
+			)
+		)
+		
 		# Set the label to the button clicked
 		if main_content == "Immobilizer\EEPROM Location":
 			self.tab_display.ui.groupBox_3.setTitle("IMMO Data") 
@@ -124,10 +129,11 @@ class UIFunctions(BaseGuiWindow):
 		button_object.setFont(font)
 		# change some fonts
 	
-	def check_ischecked(self):
+	@QtCore.Slot(QtCore.QModelIndex)
+	def check_ischecked(self, event):
+		print(event)
 		for button in self.ui.frame_top.findChildren(QPushButton):
 			if button.isChecked():
-				print(button.text())
 				button.setStyleSheet("background-color: rgb(98, 88, 153);")
 				button.setCheckable(False)
 			else:

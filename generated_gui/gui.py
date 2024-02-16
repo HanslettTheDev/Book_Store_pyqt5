@@ -491,7 +491,7 @@ class Ui_MainWindow(object):
         self.button_10.setToolTip(QCoreApplication.translate("MainWindow", u"Immobilizer EEPROM Location", None))
 #endif // QT_CONFIG(tooltip)
         self.button_10.setText("")
-        self.label_12.setText(QCoreApplication.translate("MainWindow", u"EEPEOM FINDER", None))
+        self.label_12.setText(QCoreApplication.translate("MainWindow", u"EEPROM FINDER", None))
 #if QT_CONFIG(tooltip)
         self.button_14.setToolTip(QCoreApplication.translate("MainWindow", u"ECU Repair|Pinout", None))
 #endif // QT_CONFIG(tooltip)

@@ -533,7 +533,7 @@ font-size: 16px;
                 </size>
                </property>
                <property name="text">
-                <string>EEPEOM FINDER</string>
+                <string>EEPROM FINDER</string>
                </property>
                <property name="wordWrap">
                 <bool>false</bool>

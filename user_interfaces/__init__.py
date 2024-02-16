@@ -2,11 +2,11 @@ import os
 
 from PySide2.QtCore import QUrl
 
-from config import PARENT_TEMP_LOCATION, PDFJS_VIEWER_PATH, TEMP_LOCATION
+from config import Config
 
 
-TempPath = os.path.join(os.environ['WINDIR'].split(':\\')[0] + ":\\", PARENT_TEMP_LOCATION, TEMP_LOCATION)
-PDFJS = QUrl.fromLocalFile(os.path.join(TempPath, PDFJS_VIEWER_PATH)).toString()
+TempPath = os.path.join(os.environ['WINDIR'].split(':\\')[0] + ":\\", Config.PARENT_TEMP_LOCATION, Config.TEMP_LOCATION)
+PDFJS = QUrl.fromLocalFile(os.path.join(TempPath, Config.PDFJS_VIEWER_PATH)).toString()
 
 def verify(key):
     global score 

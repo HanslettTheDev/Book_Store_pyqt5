@@ -37,8 +37,31 @@ class Ui_tab_display_window(object):
         self.frame_center.setFrameShape(QFrame.StyledPanel)
         self.frame_center.setFrameShadow(QFrame.Raised)
         self.verticalLayout_4 = QVBoxLayout(self.frame_center)
+        self.verticalLayout_4.setSpacing(0)
         self.verticalLayout_4.setObjectName(u"verticalLayout_4")
-        self.verticalLayout_4.setContentsMargins(9, -1, -1, -1)
+        self.verticalLayout_4.setContentsMargins(0, 0, 0, 0)
+        self.close_button = QPushButton(self.frame_center)
+        self.close_button.setObjectName(u"close_button")
+        sizePolicy = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.close_button.sizePolicy().hasHeightForWidth())
+        self.close_button.setSizePolicy(sizePolicy)
+        self.close_button.setMinimumSize(QSize(35, 35))
+        self.close_button.setMaximumSize(QSize(35, 35))
+        self.close_button.setToolTipDuration(2000)
+        self.close_button.setStyleSheet(u"#close_button {\n"
+"text-align: center;\n"
+"margin-bottom: 2px;\n"
+"background-color: rgb(255, 52, 55);\n"
+"}\n"
+"\n"
+"#close_button:hover {\n"
+"background-color: #F7E2E2;\n"
+"}")
+
+        self.verticalLayout_4.addWidget(self.close_button, 0, Qt.AlignRight)
+
         self.view = QFrame(self.frame_center)
         self.view.setObjectName(u"view")
         self.view.setMinimumSize(QSize(781, 350))
@@ -110,6 +133,10 @@ class Ui_tab_display_window(object):
 
     def retranslateUi(self, tab_display_window):
         tab_display_window.setWindowTitle(QCoreApplication.translate("tab_display_window", u"Form", None))
+#if QT_CONFIG(tooltip)
+        self.close_button.setToolTip(QCoreApplication.translate("tab_display_window", u"Close", None))
+#endif // QT_CONFIG(tooltip)
+        self.close_button.setText("")
         self.groupBox_3.setTitle(QCoreApplication.translate("tab_display_window", u"Car Brand", None))
         self.groupBox_2.setTitle(QCoreApplication.translate("tab_display_window", u"Model", None))
     # retranslateUi
