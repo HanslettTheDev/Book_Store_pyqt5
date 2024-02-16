@@ -1,6 +1,7 @@
+import sys
 from enigma.machine import EnigmaMachine
 import pyAesCrypt
-import pikepdf
+# import pikepdf
 import shutil
 import os
 
@@ -33,9 +34,9 @@ class ENCRYPTOR:
 			for filename in filenames:
 				if filename.endswith(('.pdf')):
 					try:
-						print("Process",os.path.join(abspath, filename))
-						self.decrypt_pdf(os.path.join(abspath, filename))
-						self.encrypt_pdf(os.path.join(abspath, filename))
+						print("Process ", os.path.join(abspath, filename))
+						# self.decrypt_pdf(os.path.join(abspath, filename))
+						# self.encrypt_pdf(os.path.join(abspath, filename))
 					except Exception as e:
 						print(e)
 						continue
@@ -69,10 +70,11 @@ class ENCRYPTOR:
 		# 	print(e)
 
 		
-	
-main = ENCRYPTOR(r"C:\ProgramData\Software\Prog\index\Lib\ECU Repair and Pinout\NISSAN\ENGINE ECU - NISSAN VQ30")
-main.get_files()
-# ciphertext = 'ZKDGHRWSTYV'
-# plaintext = machine.process_text(ciphertext)
+# if __name__ == "__main__":
+# 	path = sys.argv[1]
+# 	main = ENCRYPTOR(r"" + path)
+# 	main.get_files()
+	# ciphertext = 'ZKDGHRWSTYV'
+	# plaintext = machine.process_text(ciphertext)
 
-# print(plaintext)
+	# print(plaintext)

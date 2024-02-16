@@ -59,9 +59,22 @@ class Ui_MainWindow(object):
         self.navbar.setStyleSheet(u"background-color: #22577E;")
         self.navbar.setFrameShape(QFrame.NoFrame)
         self.navbar.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_8 = QHBoxLayout(self.navbar)
-        self.horizontalLayout_8.setObjectName(u"horizontalLayout_8")
-        self.horizontalLayout_8.setContentsMargins(10, 0, 0, 0)
+        self.horizontalLayout_4 = QHBoxLayout(self.navbar)
+        self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
+        self.horizontalLayout_4.setContentsMargins(9, 0, 0, 0)
+        self.title_bar_icon = QPushButton(self.navbar)
+        self.title_bar_icon.setObjectName(u"title_bar_icon")
+        sizePolicy1 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Expanding)
+        sizePolicy1.setHorizontalStretch(0)
+        sizePolicy1.setVerticalStretch(0)
+        sizePolicy1.setHeightForWidth(self.title_bar_icon.sizePolicy().hasHeightForWidth())
+        self.title_bar_icon.setSizePolicy(sizePolicy1)
+        self.title_bar_icon.setMaximumSize(QSize(50, 40))
+        self.title_bar_icon.setStyleSheet(u"border: none;")
+        self.title_bar_icon.setIconSize(QSize(50, 55))
+
+        self.horizontalLayout_4.addWidget(self.title_bar_icon)
+
         self.label_title_bar_top = QLabel(self.navbar)
         self.label_title_bar_top.setObjectName(u"label_title_bar_top")
         font = QFont()
@@ -75,7 +88,7 @@ class Ui_MainWindow(object):
 "margin-left: 5px;")
         self.label_title_bar_top.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
 
-        self.horizontalLayout_8.addWidget(self.label_title_bar_top)
+        self.horizontalLayout_4.addWidget(self.label_title_bar_top)
 
         self.nav_buttons = QFrame(self.navbar)
         self.nav_buttons.setObjectName(u"nav_buttons")
@@ -99,9 +112,6 @@ class Ui_MainWindow(object):
         self.horizontalLayout_9.setContentsMargins(0, 0, 0, 0)
         self.minimize_button = QPushButton(self.nav_buttons)
         self.minimize_button.setObjectName(u"minimize_button")
-        sizePolicy1 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Expanding)
-        sizePolicy1.setHorizontalStretch(0)
-        sizePolicy1.setVerticalStretch(0)
         sizePolicy1.setHeightForWidth(self.minimize_button.sizePolicy().hasHeightForWidth())
         self.minimize_button.setSizePolicy(sizePolicy1)
         self.minimize_button.setToolTipDuration(2000)
@@ -139,7 +149,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_9.addWidget(self.close_button)
 
 
-        self.horizontalLayout_8.addWidget(self.nav_buttons)
+        self.horizontalLayout_4.addWidget(self.nav_buttons)
 
 
         self.verticalLayout_5.addWidget(self.navbar)
@@ -431,7 +441,7 @@ class Ui_MainWindow(object):
         self.whatsapp_button = QPushButton(self.footer)
         self.whatsapp_button.setObjectName(u"whatsapp_button")
         self.whatsapp_button.setMinimumSize(QSize(0, 30))
-        self.whatsapp_button.setMaximumSize(QSize(80, 16777215))
+        self.whatsapp_button.setMaximumSize(QSize(90, 16777215))
         self.whatsapp_button.setStyleSheet(u"background-color: #4D77FF;\n"
 "border-radius: 8px;\n"
 "padding: 10px;")
@@ -469,6 +479,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
+        self.title_bar_icon.setText("")
         self.label_title_bar_top.setText(QCoreApplication.translate("MainWindow", u"CarTronic PROG V2022.1", None))
 #if QT_CONFIG(tooltip)
         self.minimize_button.setToolTip(QCoreApplication.translate("MainWindow", u"Minimize", None))

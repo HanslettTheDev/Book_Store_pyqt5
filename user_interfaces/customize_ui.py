@@ -79,7 +79,7 @@ class UIFunctions(BaseGuiWindow):
 
 		self.ui.frame_main.layout().insertWidget(2, self.tab_display)
 		# Button active state
-		self.functions.check_ischecked
+		self.functions.check_ischecked(self)
 		# Set rootpath per button clicked and rootIndex
 		self.tab_display.model.setRootPath(os.path.join(self.dir_path, f"Prog/index/Lib/{main_content}"))
 		# set model filter to filter only files to the second list view
@@ -131,7 +131,6 @@ class UIFunctions(BaseGuiWindow):
 	
 	def check_ischecked(self):
 		for button in self.ui.frame_top.findChildren(QPushButton):
-			print(button)
 			if button.isChecked():
 				button.setStyleSheet("background-color: rgb(98, 88, 153);")
 				button.setCheckable(False)

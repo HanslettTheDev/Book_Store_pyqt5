@@ -6,6 +6,7 @@ import wmi
 from PySide2 import QtGui
 from PySide2.QtWidgets import QWidget, QLabel, QFrame, QProgressBar, QVBoxLayout
 from PySide2.QtCore import Qt, QTimer
+from config import Config
 
 from setup import SetupWindow
 from user_interfaces import verify
@@ -29,8 +30,9 @@ class SplashScreen(QWidget):
 		self.timer.timeout.connect(self.loading)
 		self.timer.start(100)
 		self.setStyleSheet(STYLES.splash)
-		self.frame.setStyleSheet("background-color: rgb(33, 37, 43);")
-		self.setStyleSheet("border-radius: 15px; border: 3px solid grey;")
+		self.frame.setStyleSheet("background-color: rgb(33, 37, 43);") 
+		self.frame.setStyleSheet("background-image: url(\':/tab_icons/home-image.png\');")
+		self.setStyleSheet("border-radius: 15px; border: 3px solid grey; ")
 
 	def initUI(self):
 		# layout to display splash scrren frame
@@ -45,16 +47,9 @@ class SplashScreen(QWidget):
 		self.title_label.setObjectName('title_label')
 		self.title_label.resize(690, 120)
 		self.title_label.move(0, 5) # x, y
-		self.title_label.setText('Cartronic Prog')
+		self.title_label.setText(Config.APP_NAME)
 		self.title_label.setFont(QtGui.QFont("Montserrat Alternates"))
 		self.title_label.setAlignment(Qt.AlignCenter)
-		# splash screen title description
-		self.description_label = QLabel(self.frame)
-		self.description_label.resize(690, 40)
-		self.description_label.move(0, self.title_label.height())
-		self.description_label.setObjectName('desc_label')
-		self.description_label.setText('<b>Making sure everything is ready</b>')
-		self.description_label.setAlignment(Qt.AlignCenter)
 		# splash screen pogressbar
 		self.progressBar = QProgressBar(self.frame)
 		self.progressBar.resize(self.width() - 200 - 10, 50)

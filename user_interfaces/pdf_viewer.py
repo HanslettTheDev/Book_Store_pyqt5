@@ -4,6 +4,7 @@ import shutil
 
 from PySide2 import QtCore, QtWebEngineWidgets
 from PySide2.QtGui import QIcon
+from config import Config
 
 from user_interfaces import TempPath, PDFJS
 
@@ -11,8 +12,8 @@ from user_interfaces import TempPath, PDFJS
 class PDFWindow(QtWebEngineWidgets.QWebEngineView):
 	def __init__(self):
 		super(PDFWindow, self).__init__()
-		self.setWindowTitle("Cartronic Prog Viewer")
-		self.setWindowIcon(QIcon(os.path.join(":/tab_icons/logo.jpg")))
+		self.setWindowTitle(f"{Config.APP_NAME} Viewer")
+		self.setWindowIcon(QIcon(os.path.join(":/tab_icons/logo.png")))
 
 	def load_pdf(self, filename):
 		try:

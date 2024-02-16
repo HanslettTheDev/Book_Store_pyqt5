@@ -1,4 +1,4 @@
-# Cartronic Prog
+# EcuFixTronic
 
 Built with Python, PyQT and Qt Designer
 

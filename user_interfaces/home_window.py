@@ -1,13 +1,13 @@
 # access command line arguments
 import os 
-import webbrowser
 import logging
+import webbrowser
 
 from PySide2 import QtGui
-from PySide2.QtGui import QIcon, QColor
-from PySide2.QtWidgets import (QMainWindow, QFileSystemModel, QAbstractItemView, 
-	QFrame, QGraphicsDropShadowEffect, QPushButton, QHBoxLayout)
-from PySide2.QtCore import Qt, QSize, QTimer
+from PySide2.QtGui import QIcon
+from PySide2.QtWidgets import (QMainWindow, QFileSystemModel, 
+	QFrame, QPushButton)
+from PySide2.QtCore import Qt, QSize
 
 # GUI FILE
 from generated_gui.gui import Ui_MainWindow
@@ -16,8 +16,10 @@ from utility_scripts.decrypt_pdf import DECRYPT_FILES
 # STYLESHEET FILE
 from stylesheet import STYLES
 
+# Config 
+from config import Config
+
 from user_interfaces import TempPath
-# from user_interfaces.utils import FileIconProvider
 from user_interfaces.pdf_viewer import PDFWindow
 from user_interfaces.tab_display_window import TabDisplay
 
@@ -30,6 +32,7 @@ class BaseGuiWindow(QMainWindow):
 		self.logger.debug("Main Window running...")
 		self.setMinimumSize(QSize(1100, 500))
 		# Instances of objects
+		self.config = Config()
 		self.styles = STYLES()
 		self.ui = Ui_MainWindow()
 		self.tab_display = TabDisplay()
@@ -39,7 +42,8 @@ class BaseGuiWindow(QMainWindow):
 
 		# SETUP UI
 		self.ui.setupUi(self)   
-		self.setWindowIcon(QIcon(os.path.join(":/tab_icons/logo.jpg")))  
+		# I don't know why it's still here
+		self.setWindowIcon(QIcon(os.path.join(":/tab_icons/logo.png")))  
 
 		# DEFAULT PATH and temp variable
 		self.dir_path = os.path.join(os.environ['WINDIR'].split(':\\')[0] + ":\\", "ProgramData", "Software") #get the directory 
@@ -57,9 +61,8 @@ class BaseGuiWindow(QMainWindow):
 		
 		self.ui.frame_top.setStyleSheet("#frame_top {background-image: url(\':/tab_icons/home-image.png\');}")
 		
-
 		# Overide default styles
-		self.ui.label_title_bar_top.setStyleSheet("font-size: 15px")
+		self.ui.label_title_bar_top.setStyleSheet("font-size: 14px")
 
 		# Add window icons
 		self.functions.set_window_icons(self, ":/tab_icons/cil-window-minimize.png", self.ui.minimize_button)
@@ -70,7 +73,11 @@ class BaseGuiWindow(QMainWindow):
 		# ==> BUTTON CONNECTIONS AND FUNCTIONS
 		self.setStyleSheet(self.styles.default_styles)
 			
-		self.setWindowTitle('Cartronic PROG V2022.1')
+		self.setWindowTitle(self.config.APP_NAME)
+		self.ui.label_title_bar_top.setText(self.config.APP_NAME)
+		self.ui.version_label.setText(self.config.VERSION)
+		self.ui.label_3.setText(self.config.COPYRIGHT_TEXT)
+
 		# set the title bar mouse move event
 		self.ui.navbar.mouseMoveEvent = self.mouseMoveEvent
 		# reset the default MouseMoveEvent
@@ -80,6 +87,17 @@ class BaseGuiWindow(QMainWindow):
 		# Load UI tweaks
 		self.functions.load_ui_tweaks(self)
 
+		# Add hover effect
+		for button in self.ui.frame_top.findChildren(QPushButton):
+			button.setStyleSheet("""
+				QPushButton {
+					background-color: white;
+				}
+				QPushButton:hover {
+				background-color: pink;
+				color: black;
+				}
+			""")
 		# Add button icons
 		self.functions.set_button_icons(self, self.ui.button_9, 'electronics')
 		self.functions.set_button_icons(self, self.ui.button_10, 'location')
@@ -87,11 +105,11 @@ class BaseGuiWindow(QMainWindow):
 		self.functions.set_button_icons(self, self.ui.button_14, 'ecu-pinout')
 		self.functions.set_button_icons(self, self.ui.button_16, 'troubleshooting')
 		self.functions.set_button_icons(self, self.ui.button_17, 'datasheet')
-		# self.functions.set_button_icons(self, self.ui.whatsapp_button, 'whatsapp', width=20, height=20)
-		# self.functions.set_button_icons(self, self.ui.gmail_button, 'gmail', width=20, height=20)
+		self.functions.set_button_icons(self, self.ui.whatsapp_button, 'whatsapp', width=20, height=20)
 
-		# LOGO BUTTON ICON
-		self.ui.logo_button.setIcon(QIcon(":/tab_icons/logo.jpg"))
+		# LOGO BUTTON ICON and title bar icon
+		self.ui.title_bar_icon.setIcon(QIcon(":/tab_icons/logo.png"))
+		self.ui.logo_button.setIcon(QIcon(":/tab_icons/logo.png"))
 
 		# change some fonts
 		self.functions.load_fonts(self)
@@ -109,16 +127,17 @@ class BaseGuiWindow(QMainWindow):
 		self.functions.change_fonts(self, "Montserrat", self.ui.label_8, True)
 		self.functions.change_fonts(self, "Montserrat", self.ui.label_9, True)
 		self.functions.change_fonts(self, "Montserrat", self.ui.label_12, True)
+
+		# Show window after all premodified UI changes have been done
 		self.show()
 
 		# Button tab events to launch the tab display window
-		# self.ui.whatsapp_button.clicked.connect(lambda: self.open_whatsapp_or_email('Whatsapp'))
-		# self.ui.gmail_button.clicked.connect(lambda: self.open_whatsapp_or_email('Gmail'))
+		self.ui.whatsapp_button.clicked.connect(lambda: self.open_whatsapp())
 		self.ui.button_17.clicked.connect(lambda: self.functions.sub_content(self, "ECU Datasheet", self.ui.label_9.text()))
 		self.ui.button_16.clicked.connect(lambda: self.functions.sub_content(self, "ECU TROUBLESHOOTING", self.ui.label_7.text()))
 		self.ui.button_14.clicked.connect(lambda: self.functions.sub_content(self, "ECU Repair and Pinout", self.ui.label_5.text()))
 		self.ui.button_11.clicked.connect(lambda: self.functions.sub_content(self, "Dashboard repair and reset", self.ui.label_6.text()))
-		self.ui.button_10.clicked.connect(lambda: self.functions.sub_content(self, "Immobilizer\EEPROM Location", self.ui.label_12.text()))
+		self.ui.button_10.clicked.connect(lambda: self.functions.sub_content(self, "EEPROM Location", self.ui.label_12.text()))
 		self.ui.button_9.clicked.connect(lambda: self.functions.sub_content(self, "Electronics", self.ui.label_8.text()))
 
 
@@ -218,8 +237,5 @@ class BaseGuiWindow(QMainWindow):
 	def disableMouseEvent(self, event):
 		pass
 	
-	# def open_whatsapp_or_email(self, label):
-	# 	if label == "Whatsapp":
-	# 		webbrowser.open("https://wa.me/c/237676634413")
-	# 	else:
-	# 		webbrowser.open("https://google.com")
+	def open_whatsapp(self):
+		webbrowser.open("https://wa.me/c/237676634413")
