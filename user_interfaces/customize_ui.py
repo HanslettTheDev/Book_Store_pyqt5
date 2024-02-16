@@ -129,13 +129,14 @@ class UIFunctions(BaseGuiWindow):
 		button_object.setFont(font)
 		# change some fonts
 	
-	@QtCore.Slot(QtCore.QModelIndex)
-	def check_ischecked(self, event):
-		print(event)
+	def check_ischecked(self):
 		for button in self.ui.frame_top.findChildren(QPushButton):
+			print(button)
 			if button.isChecked():
 				button.setStyleSheet("background-color: rgb(98, 88, 153);")
 				button.setCheckable(False)
+				button.setEnabled(False)
 			else:
 				button.setStyleSheet("background-color: white;")
 				button.setCheckable(True)
+				button.setEnabled(True)

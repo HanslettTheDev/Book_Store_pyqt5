@@ -122,14 +122,6 @@ class BaseGuiWindow(QMainWindow):
 		self.ui.button_9.clicked.connect(lambda: self.functions.sub_content(self, "Electronics", self.ui.label_8.text()))
 
 
-		self.ui.button_17.clicked.connect(lambda: self.is_active)
-		self.ui.button_16.clicked.connect(lambda: self.is_active)
-		self.ui.button_14.clicked.connect(lambda: self.is_active)
-		self.ui.button_11.clicked.connect(lambda: self.is_active)
-		self.ui.button_10.clicked.connect(lambda: self.is_active)
-		self.ui.button_9.clicked.connect(lambda: self.is_active)
-
-
 		# populate the QListview by their respective indexes
 		# On the other hand the second QListView must have a model where items are added or 
 		# removed as they are selected or deselected, 
@@ -204,12 +196,7 @@ class BaseGuiWindow(QMainWindow):
 		self.tab_display.hide()
 		self.setMinimumSize(QSize(w, h))
 		self.resize(QSize(w, h))
-	
-	@QtCore.Slot(QtCore.QModelIndex)
-	def is_active(self, event):
-		print(event)
 		
-
 	# MOUSE EVENTS 
 	def mousePressEvent(self, event):
 		if event.button() == Qt.LeftButton:
