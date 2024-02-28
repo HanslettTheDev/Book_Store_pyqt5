@@ -83,18 +83,15 @@ class BaseGuiWindow(QMainWindow):
 				self.move(event.globalPos() - self.movePosition)
 				event.accept()
 		
-		self.setWindowTitle('Cartronic PROG V2022.1')
+		self.ui.label_title_bar_top.setText('Cartronic PROG')
 		self.ui.nav_title.mouseMoveEvent = move_window
 		self.functions.load_ui_tweaks(self)
 
 		# Add button icons
 		self.functions.set_button_icons(self, self.ui.button_9, 'electronics')
-		self.functions.set_button_icons(self, self.ui.button_10, 'location')
+		self.functions.set_button_icons(self, self.ui.button_10, 'eeprom')
 		self.functions.set_button_icons(self, self.ui.button_11, 'dashboard')
-		self.functions.set_button_icons(self, self.ui.button_12, 'airbag')
-		self.functions.set_button_icons(self, self.ui.button_13, 'eeprom')
 		self.functions.set_button_icons(self, self.ui.button_14, 'ecu-pinout')
-		self.functions.set_button_icons(self, self.ui.button_15, 'prog')
 		self.functions.set_button_icons(self, self.ui.button_16, 'troubleshooting')
 		self.functions.set_button_icons(self, self.ui.button_17, 'datasheet')
 		self.functions.set_button_icons(self, self.ui.whatsapp_button, 'whatsapp', width=20, height=20)
@@ -114,14 +111,11 @@ class BaseGuiWindow(QMainWindow):
 		self.functions.change_fonts(self, "Montserrat", self.ui.label_3, True)
 
 		# QLabel 
-		self.functions.change_fonts(self, "Montserrat", self.ui.label_4, True)
 		self.functions.change_fonts(self, "Montserrat", self.ui.label_5, True)
 		self.functions.change_fonts(self, "Montserrat", self.ui.label_6, True)
 		self.functions.change_fonts(self, "Montserrat", self.ui.label_7, True)
 		self.functions.change_fonts(self, "Montserrat", self.ui.label_8, True)
 		self.functions.change_fonts(self, "Montserrat", self.ui.label_9, True)
-		self.functions.change_fonts(self, "Montserrat", self.ui.label_10, True)
-		self.functions.change_fonts(self, "Montserrat", self.ui.label_11, True)
 		self.functions.change_fonts(self, "Montserrat", self.ui.label_12, True)
 		self.show()
 
@@ -131,12 +125,9 @@ class BaseGuiWindow(QMainWindow):
 		self.ui.gmail_button.clicked.connect(lambda: self.open_whatsapp_or_email('Gmail'))
 		self.ui.button_17.clicked.connect(lambda: self.functions.sub_content(self, "ECU Datasheet", self.ui.label_9.text()))
 		self.ui.button_16.clicked.connect(lambda: self.functions.sub_content(self, "ECU TROUBLESHOOTING", self.ui.label_7.text()))
-		self.ui.button_15.clicked.connect(lambda: self.functions.sub_content(self, "Immobilizer\Prog and Decode", self.ui.label_10.text()))
 		self.ui.button_14.clicked.connect(lambda: self.functions.sub_content(self, "ECU Repair and Pinout", self.ui.label_5.text()))
-		self.ui.button_13.clicked.connect(lambda: self.functions.sub_content(self, "Immobilizer\Pinout and wiring", self.ui.label_11.text()))
-		self.ui.button_12.clicked.connect(lambda: self.functions.sub_content(self, "Airbag", self.ui.label_4.text()))
 		self.ui.button_11.clicked.connect(lambda: self.functions.sub_content(self, "Dashboard repair and reset", self.ui.label_6.text()))
-		self.ui.button_10.clicked.connect(lambda: self.functions.sub_content(self, "Immobilizer\EEPROM Location", self.ui.label_12.text()))
+		self.ui.button_10.clicked.connect(lambda: self.functions.sub_content(self, "EEPROM Location", self.ui.label_12.text()))
 		self.ui.button_9.clicked.connect(lambda: self.functions.sub_content(self, "Electronics", self.ui.label_8.text()))
 
 		# populate the QListview by their respective indexes

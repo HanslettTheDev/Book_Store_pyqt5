@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1435</width>
-    <height>767</height>
+    <width>1376</width>
+    <height>658</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -171,7 +171,7 @@ color: white;</string>
                 <property name="bottomMargin">
                  <number>0</number>
                 </property>
-                <item alignment="Qt::AlignHCenter">
+                <item alignment="Qt::AlignLeft">
                  <widget class="QLabel" name="label_title_bar_top">
                   <property name="font">
                    <font>
@@ -375,65 +375,6 @@ font-size: 12px;
            <number>0</number>
           </property>
           <item>
-           <widget class="QFrame" name="frame">
-            <property name="frameShape">
-             <enum>QFrame::StyledPanel</enum>
-            </property>
-            <property name="frameShadow">
-             <enum>QFrame::Raised</enum>
-            </property>
-            <layout class="QVBoxLayout" name="verticalLayout_6">
-             <item>
-              <widget class="QPushButton" name="button_12">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
-               <property name="minimumSize">
-                <size>
-                 <width>0</width>
-                 <height>0</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>16777215</width>
-                 <height>16777215</height>
-                </size>
-               </property>
-               <property name="toolTip">
-                <string>Airbag Reprog</string>
-               </property>
-               <property name="toolTipDuration">
-                <number>2000</number>
-               </property>
-               <property name="text">
-                <string/>
-               </property>
-               <property name="checkable">
-                <bool>true</bool>
-               </property>
-               <property name="checked">
-                <bool>false</bool>
-               </property>
-               <property name="flat">
-                <bool>false</bool>
-               </property>
-              </widget>
-             </item>
-             <item alignment="Qt::AlignHCenter">
-              <widget class="QLabel" name="label_4">
-               <property name="text">
-                <string>Airbag Reprog</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </widget>
-          </item>
-          <item>
            <widget class="QFrame" name="frame_6">
             <property name="frameShape">
              <enum>QFrame::StyledPanel</enum>
@@ -442,6 +383,15 @@ font-size: 12px;
              <enum>QFrame::Raised</enum>
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_7">
+             <property name="leftMargin">
+              <number>30</number>
+             </property>
+             <property name="topMargin">
+              <number>9</number>
+             </property>
+             <property name="rightMargin">
+              <number>90</number>
+             </property>
              <item>
               <widget class="QPushButton" name="button_14">
                <property name="sizePolicy">
@@ -501,6 +451,15 @@ font-size: 12px;
              <enum>QFrame::Raised</enum>
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_8">
+             <property name="leftMargin">
+              <number>30</number>
+             </property>
+             <property name="topMargin">
+              <number>9</number>
+             </property>
+             <property name="rightMargin">
+              <number>90</number>
+             </property>
              <item>
               <widget class="QPushButton" name="button_11">
                <property name="sizePolicy">
@@ -560,6 +519,15 @@ font-size: 12px;
              <enum>QFrame::Raised</enum>
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_9">
+             <property name="leftMargin">
+              <number>30</number>
+             </property>
+             <property name="topMargin">
+              <number>9</number>
+             </property>
+             <property name="rightMargin">
+              <number>90</number>
+             </property>
              <item>
               <widget class="QPushButton" name="button_16">
                <property name="sizePolicy">
@@ -619,6 +587,15 @@ font-size: 12px;
              <enum>QFrame::Raised</enum>
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_13">
+             <property name="leftMargin">
+              <number>30</number>
+             </property>
+             <property name="topMargin">
+              <number>9</number>
+             </property>
+             <property name="rightMargin">
+              <number>90</number>
+             </property>
              <item>
               <widget class="QPushButton" name="button_9">
                <property name="sizePolicy">
@@ -678,6 +655,15 @@ font-size: 12px;
              <enum>QFrame::Raised</enum>
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_14">
+             <property name="leftMargin">
+              <number>30</number>
+             </property>
+             <property name="topMargin">
+              <number>9</number>
+             </property>
+             <property name="rightMargin">
+              <number>90</number>
+             </property>
              <item>
               <widget class="QPushButton" name="button_17">
                <property name="sizePolicy">
@@ -729,124 +715,6 @@ font-size: 12px;
            </widget>
           </item>
           <item>
-           <widget class="QFrame" name="frame_9">
-            <property name="frameShape">
-             <enum>QFrame::StyledPanel</enum>
-            </property>
-            <property name="frameShadow">
-             <enum>QFrame::Raised</enum>
-            </property>
-            <layout class="QVBoxLayout" name="verticalLayout_11">
-             <item>
-              <widget class="QPushButton" name="button_15">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
-               <property name="minimumSize">
-                <size>
-                 <width>0</width>
-                 <height>0</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>16777215</width>
-                 <height>16777215</height>
-                </size>
-               </property>
-               <property name="toolTip">
-                <string>Immobilizer Prog|Decode</string>
-               </property>
-               <property name="toolTipDuration">
-                <number>2000</number>
-               </property>
-               <property name="text">
-                <string/>
-               </property>
-               <property name="checkable">
-                <bool>true</bool>
-               </property>
-               <property name="checked">
-                <bool>false</bool>
-               </property>
-               <property name="flat">
-                <bool>false</bool>
-               </property>
-              </widget>
-             </item>
-             <item alignment="Qt::AlignHCenter">
-              <widget class="QLabel" name="label_10">
-               <property name="text">
-                <string>IMMO PROG|DECODE</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </widget>
-          </item>
-          <item>
-           <widget class="QFrame" name="frame_13">
-            <property name="frameShape">
-             <enum>QFrame::StyledPanel</enum>
-            </property>
-            <property name="frameShadow">
-             <enum>QFrame::Raised</enum>
-            </property>
-            <layout class="QVBoxLayout" name="verticalLayout_10">
-             <item>
-              <widget class="QPushButton" name="button_13">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
-               <property name="minimumSize">
-                <size>
-                 <width>0</width>
-                 <height>0</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>16777215</width>
-                 <height>16777215</height>
-                </size>
-               </property>
-               <property name="toolTip">
-                <string>Immobilizer Box Pinout|Wiring</string>
-               </property>
-               <property name="toolTipDuration">
-                <number>2000</number>
-               </property>
-               <property name="text">
-                <string/>
-               </property>
-               <property name="checkable">
-                <bool>true</bool>
-               </property>
-               <property name="checked">
-                <bool>false</bool>
-               </property>
-               <property name="flat">
-                <bool>false</bool>
-               </property>
-              </widget>
-             </item>
-             <item alignment="Qt::AlignHCenter">
-              <widget class="QLabel" name="label_11">
-               <property name="text">
-                <string>IMMO Box Pinout|Wiring</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </widget>
-          </item>
-          <item>
            <widget class="QFrame" name="frame_10">
             <property name="frameShape">
              <enum>QFrame::StyledPanel</enum>
@@ -855,6 +723,15 @@ font-size: 12px;
              <enum>QFrame::Raised</enum>
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_12">
+             <property name="leftMargin">
+              <number>30</number>
+             </property>
+             <property name="topMargin">
+              <number>9</number>
+             </property>
+             <property name="rightMargin">
+              <number>90</number>
+             </property>
              <item>
               <widget class="QPushButton" name="button_10">
                <property name="sizePolicy">
@@ -903,24 +780,6 @@ font-size: 12px;
               </widget>
              </item>
             </layout>
-           </widget>
-          </item>
-          <item>
-           <widget class="QComboBox" name="comboBox">
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>30</height>
-             </size>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">font-size: 15px;</string>
-            </property>
-            <item>
-             <property name="text">
-              <string>English</string>
-             </property>
-            </item>
            </widget>
           </item>
          </layout>
@@ -1202,7 +1061,7 @@ font-size: 15px;</string>
              </sizepolicy>
             </property>
             <property name="text">
-             <string>Copyright ©️ 2022- Powered by LockSmith Inos Mechatronics services. All rights reserved</string>
+             <string>Copyright ©️ 2024 Powered by LockSmith Inos Mechatronics services. All rights reserved</string>
             </property>
             <property name="margin">
              <number>4</number>
@@ -1307,12 +1166,12 @@ font-size: 15px;</string>
             </property>
             <property name="maximumSize">
              <size>
-              <width>60</width>
+              <width>45</width>
               <height>40</height>
              </size>
             </property>
             <property name="text">
-             <string>V1.0.0</string>
+             <string>V1.5</string>
             </property>
             <property name="margin">
              <number>5</number>

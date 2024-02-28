@@ -84,7 +84,7 @@ class SplashScreen(QWidget):
 			time.sleep(1)
 			self.main_app = self.verify_license()
 			self.main_app.show()
-		self.counter += 1
+		self.counter += 3
 
 	def verify_license(self):
 		DIR_PATH = os.getenv('LOCALAPPDATA')
