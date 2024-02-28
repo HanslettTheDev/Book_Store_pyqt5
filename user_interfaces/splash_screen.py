@@ -3,9 +3,9 @@ import os
 import time
 import wmi 
 
-from PySide2 import QtGui
-from PySide2.QtWidgets import QWidget, QLabel, QFrame, QProgressBar, QVBoxLayout
+from PySide2.QtWidgets import (QMainWindow, QGraphicsDropShadowEffect)
 from PySide2.QtCore import Qt, QTimer
+from PySide2.QtGui import QColor
 from config import Config
 
 from setup import SetupWindow
@@ -15,65 +15,103 @@ from user_interfaces import verify
 from stylesheet import STYLES
 
 from user_interfaces.home_window import BaseGuiWindow
+from qt_ui_files.ui_splash_screen import Ui_SplashScreen
 
+# GLOBALS
+counter = 0
+jumper = 10
 
-class SplashScreen(QWidget):
+class SplashScreen(QMainWindow):
 	def __init__(self):
-		super().__init__()
-		self.setFixedSize(700, 350)
-		self.setWindowFlag(Qt.FramelessWindowHint)
-		self.setAttribute(Qt.WA_TranslucentBackground)
-		self.counter = 0
-		self.n = 100 
-		self.initUI()
+		QMainWindow.__init__(self)
+		self.ui = Ui_SplashScreen()
+		self.ui.setupUi(self)
+
+		## ==> SET INITIAL PROGRESS BAR TO (0) ZERO
+		self.progressBarValue(0)
+
+		## ==> REMOVE STANDARD TITLE BAR
+		self.setWindowFlags(Qt.FramelessWindowHint) # Remove title bar
+		self.setAttribute(Qt.WA_TranslucentBackground) # Set background to transparent
+
+		## ==> APPLY DROP SHADOW EFFECT
+		self.shadow = QGraphicsDropShadowEffect(self)
+		self.shadow.setBlurRadius(20)
+		self.shadow.setXOffset(0)
+		self.shadow.setYOffset(0)
+		self.shadow.setColor(QColor(0, 0, 0, 120))
+		self.ui.circularBg.setGraphicsEffect(self.shadow)
+
+		## QTIMER ==> START
 		self.timer = QTimer()
-		self.timer.timeout.connect(self.loading)
-		self.timer.start(100)
-		self.setStyleSheet(STYLES.splash)
-		self.frame.setStyleSheet("background-color: rgb(33, 37, 43);") 
-		self.frame.setStyleSheet("background-image: url(\':/tab_icons/home-image.png\');")
-		self.setStyleSheet("border-radius: 15px; border: 3px solid grey; ")
+		self.timer.timeout.connect(self.progress)
+		# TIMER IN MILLISECONDS
+		self.timer.start(15)
 
-	def initUI(self):
-		# layout to display splash scrren frame
-		layout = QVBoxLayout()
-		self.setLayout(layout)
-		# splash screen frame
-		self.frame = QFrame()
-		self.frame.setObjectName("frame")
-		layout.addWidget(self.frame)
-		# splash screen title
-		self.title_label = QLabel(self.frame)
-		self.title_label.setObjectName('title_label')
-		self.title_label.resize(690, 120)
-		self.title_label.move(0, 5) # x, y
-		self.title_label.setText(Config.APP_NAME)
-		self.title_label.setFont(QtGui.QFont("Montserrat Alternates"))
-		self.title_label.setAlignment(Qt.AlignCenter)
-		# splash screen pogressbar
-		self.progressBar = QProgressBar(self.frame)
-		self.progressBar.resize(self.width() - 200 - 10, 50)
-		self.progressBar.move(100, 180) # self.description_label.y()+130
-		self.progressBar.setAlignment(Qt.AlignCenter)
-		self.progressBar.setFormat('%p%')
-		self.progressBar.setTextVisible(True)
-		self.progressBar.setRange(0, self.n)
-		self.progressBar.setValue(20)
-		self.progressBar.setStyleSheet("background-color: #4D77FF;")
+		## SHOW ==> MAIN WINDOW
+		########################################################################
+		self.show()
+		## ==> END ##
 
-	def loading(self):
-		# set progressbar value
-		self.progressBar.setValue(self.counter)
-		# stop progress if counter
-		# is greater than n and
-		# display main window app
-		if self.counter >= self.n:
+	def progress(self):
+		global counter
+		global jumper
+		value = counter
+
+		# HTML TEXT PERCENTAGE
+		htmlText = """<p><span style=" font-size:68pt;">{VALUE}</span><span style=" font-size:58pt; vertical-align:super;">%</span></p>"""
+
+		# REPLACE VALUE
+		newHtml = htmlText.replace("{VALUE}", str(jumper))
+
+		if(value > jumper):
+			# APPLY NEW PERCENTAGE TEXT
+			self.ui.labelPercentage.setText(newHtml)
+			jumper += 2
+
+		# SET VALUE TO PROGRESS BAR
+		# fix max value error if > than 100
+		if value >= 100: value = 1.000
+		self.progressBarValue(value)
+
+		# CLOSE SPLASH SCREE AND OPEN APP
+		if counter > 100:
+			# STOP TIMER
 			self.timer.stop()
-			self.close()
-			time.sleep(1)
+
+			# SHOW MAIN WINDOW
 			self.main_app = self.verify_license()
 			self.main_app.show()
-		self.counter += 2.75
+
+			# CLOSE SPLASH SCREEN
+			self.close()
+
+		# INCREASE COUNTER
+		counter += 0.5
+
+	def progressBarValue(self, value):
+
+		# PROGRESSBAR STYLESHEET BASE
+		styleSheet = """
+		QFrame{
+			border-radius: 150px;
+			background-color: qconicalgradient(cx:0.5, cy:0.5, angle:90, stop:{STOP_1} rgba(255, 0, 127, 0), stop:{STOP_2} rgba(85, 170, 255, 255));
+		}
+		"""
+
+		# GET PROGRESS BAR VALUE, CONVERT TO FLOAT AND INVERT VALUES
+		# stop works of 1.000 to 0.000
+		progress = (100 - value) / 100.0
+
+		# GET NEW VALUES
+		stop_1 = str(progress - 0.001)
+		stop_2 = str(progress)
+
+		# SET VALUES TO NEW STYLESHEET
+		newStylesheet = styleSheet.replace("{STOP_1}", stop_1).replace("{STOP_2}", stop_2)
+
+		# APPLY STYLESHEET WITH NEW VALUES
+		self.ui.circularProgress.setStyleSheet(newStylesheet)
 
 	def verify_license(self):
 		DIR_PATH = os.getenv('LOCALAPPDATA')
