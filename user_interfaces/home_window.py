@@ -52,6 +52,7 @@ class BaseGuiWindow(QMainWindow):
 		self.ui.size_grip.setStyleSheet("QSizeGrip {\n"
 		"background-image: url(\':/tab_icons/cil-size-grip.png\');\n"
 		"}")
+
 		for frame in self.ui.frame_top.children():
 			if type(frame) == QFrame:
 				frame.setStyleSheet("background-color: #40A2E3; border-radius: 15px; padding: 2px; color: white;")
