@@ -4,7 +4,7 @@ import time
 import wmi 
 
 from PySide2.QtWidgets import (QMainWindow, QGraphicsDropShadowEffect)
-from PySide2.QtCore import Qt, QTimer
+from PySide2.QtCore import Qt, QTimer, QSize
 from PySide2.QtGui import QColor
 from config import Config
 
@@ -50,7 +50,18 @@ class SplashScreen(QMainWindow):
 
 		## SHOW ==> MAIN WINDOW
 		########################################################################
+		self.ui.container.setStyleSheet(
+			"background-color: none;"
+		)
+		# self.ui.centralwidget.setMinimumSize(QSize(400, 400))
+		# self.ui.centralwidget.setStyleSheet("background-color: red;")
+		# Remove label text
+		self.ui.labelTitle.setText("")
+		self.ui.circularBg.setStyleSheet("background-image: url(\':/tab_icons/logo.png\')")
+		
 		self.show()
+
+
 		## ==> END ##
 
 	def progress(self):

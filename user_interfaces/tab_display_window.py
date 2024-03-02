@@ -37,4 +37,17 @@ class TabDisplay(QWidget):
 		self.ui.dropdown_tree.hideColumn(1)
 		self.ui.dropdown_tree.hideColumn(2)
 		self.ui.dropdown_tree.hideColumn(3)
+
+		# Add a background image
+		self.ui.frame_center.setStyleSheet("background-image: url(\':/others/bg1.jpeg\'); background-repeat: none;")
+		self.ui.frame_center.setStyleSheet("""
+			#groupBox_2, #groupBox_3 {
+				border: 2px solid #EFEFEF;
+				background-color: #D1D1D1;
+				border-radius: 10px;
+			}
+			#view {
+				font-size: 20px;
+			}
+		""")
 		# self.show()

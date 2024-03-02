@@ -129,4 +129,9 @@
     <file alias="Roboto-Thin.ttf">resources/fonts/Roboto/Roboto-Thin.ttf</file>
     <file alias="Roboto-ThinItalic.ttf">resources/fonts/Roboto/Roboto-ThinItalic.ttf</file>
    </qresource>
+   <qresource prefix="others">
+    <file alias="bg1.jpeg">resources/others/bg1.jpeg</file>
+    <file alias="bg2.jpeg">resources/others/bg2.jpeg</file>
+    <file alias="brand-name.png">resources/others/brand-name.png</file>
+   </qresource>
 </RCC>
