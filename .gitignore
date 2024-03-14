@@ -6,4 +6,7 @@ pdfjs
 resources.py
 resources_rc.py
 env
+ecufixtronic.spec
+test.py
+CartronicLicenseGen.py
 __pycache__

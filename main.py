@@ -1,14 +1,11 @@
-import logging
 import sys
 
 from PySide2.QtWidgets import QApplication
 from user_interfaces.splash_screen import SplashScreen
+from user_interfaces import logger
 
 def main():
 	''' Main application which loads every component and shows the GUI '''
-	logging.basicConfig(filename='cartronic_log.log', level=logging.DEBUG, filemode="w", format='%(asctime)s: %(lineno)d: %(funcName)s: %(levelname)s: %(message)s')
-	logger = logging.getLogger(__name__)
-
 	try:
 		app = QApplication(sys.argv)
 		logger.debug('Application started')

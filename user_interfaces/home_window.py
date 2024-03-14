@@ -15,7 +15,7 @@ from utility_scripts.decrypt_pdf import DECRYPT_FILES
 # STYLESHEET FILE
 from stylesheet import STYLES
 
-from user_interfaces import TempPath
+from user_interfaces import TempPath, logger
 from user_interfaces.utils import FileIconProvider
 from user_interfaces.pdf_viewer import PDFWindow
 
@@ -24,8 +24,8 @@ class BaseGuiWindow(QMainWindow):
 	def __init__(self, *args, obj=None, **kwargs):
 		super(BaseGuiWindow, self).__init__(*args, **kwargs)
 		from user_interfaces.customize_ui import UIFunctions
-		self.logger = logging.getLogger(__name__)
-		self.logger.debug("Main Window running...")
+		self.logger = logger
+		logger.debug("Main Window running...")
 		self.setMinimumSize(QSize(1431,730))
 		# Instances of objects
 		self.styles = STYLES()

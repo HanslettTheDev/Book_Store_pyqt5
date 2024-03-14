@@ -99,6 +99,7 @@ class UIFunctions(BaseGuiWindow):
 			self.ui.groupBox_2.setTitle(f"{label}")
 	
 	def set_window_icons(self, url, button):
+		self.logger.info(f"Window icon with url[{url}] set for button -> {button.objectName()}")
 		icon = QIcon()
 		icon.addFile(url)
 		button.setIcon(icon)

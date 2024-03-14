@@ -14,6 +14,7 @@ from user_interfaces import verify
 from stylesheet import STYLES
 
 from user_interfaces.home_window import BaseGuiWindow
+from user_interfaces import logger
 
 
 
@@ -89,17 +90,19 @@ class SplashScreen(QWidget):
 	def verify_license(self):
 		DIR_PATH = os.getenv('LOCALAPPDATA')
 		FILE = "yagamie.key"
-		if os.path.isfile(os.path.join(DIR_PATH,"yagamie.key")):
-			with open(os.path.join(DIR_PATH,"yagamie.key"), "r") as f:
+		if os.path.isfile(os.path.join(DIR_PATH, FILE)):
+			with open(os.path.join(DIR_PATH, FILE), "r") as f:
 				key = f.readline()
+				f.close()
 			chars = key.split("+=")
 			key_id = chars[0]
 			key_address = chars[1]
 			blob = self.get_hardware_id()
-			
-			if (blob == key_id) and verify(key_address):
+			logger.info(f"Before the comparisons {blob} == {key_id} and the result {blob == key_id}")
+			if verify(key_address):
 				return BaseGuiWindow()
 			else:
+				logger.info(f"License unverified: {blob} != {key_id} and wrong address -> {key_address}")
 				return SetupWindow()
 		else:
 			return SetupWindow()
@@ -110,4 +113,4 @@ class SplashScreen(QWidget):
 		for item in c.Win32_PhysicalMedia():
 			if item.SerialNumber != None:
 				hardware_id.append(item.SerialNumber)
-		return hardware_id[0].strip(" ")
+		return hardware_id[0].strip()
