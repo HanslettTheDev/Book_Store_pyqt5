@@ -1,11 +1,12 @@
 # access command line arguments
-import os 
+import os
+import string 
 import time
-import wmi 
 
 from PySide2 import QtGui
 from PySide2.QtWidgets import QWidget, QLabel, QFrame, QProgressBar, QVBoxLayout
 from PySide2.QtCore import Qt, QTimer
+from getmac import get_mac_address
 
 from setup import SetupWindow
 from user_interfaces import verify
@@ -32,6 +33,7 @@ class SplashScreen(QWidget):
 		self.timer.start(100)
 		self.setStyleSheet(STYLES.splash)
 		self.frame.setStyleSheet("background-image: url(:/tab_icons/logo.jpg);")
+		logger.info("Splash Screen animation running")
 
 	def initUI(self):
 		# layout to display splash scrren frame
@@ -98,19 +100,14 @@ class SplashScreen(QWidget):
 			key_id = chars[0]
 			key_address = chars[1]
 			blob = self.get_hardware_id()
-			logger.info(f"Before the comparisons {blob} == {key_id} and the result {blob == key_id}")
-			if verify(key_address):
+			
+			if (blob == key_id) and verify(key_address):
+				logger.info(f"License verified")
 				return BaseGuiWindow()
-			else:
-				logger.info(f"License unverified: {blob} != {key_id} and wrong address -> {key_address}")
-				return SetupWindow()
+			logger.error(f"License unverified")
+			return SetupWindow()
 		else:
 			return SetupWindow()
 	
 	def get_hardware_id(self):
-		c = wmi.WMI()
-		hardware_id = []
-		for item in c.Win32_PhysicalMedia():
-			if item.SerialNumber != None:
-				hardware_id.append(item.SerialNumber)
-		return hardware_id[0].strip()
+		return get_mac_address()

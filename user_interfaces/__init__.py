@@ -4,7 +4,15 @@ from PySide2.QtCore import QUrl
 
 from config import PARENT_TEMP_LOCATION, PDFJS_VIEWER_PATH, TEMP_LOCATION
 
-logging.basicConfig(filename='cartronic_log.log', level=logging.DEBUG, filemode="a", format='%(asctime)s: %(lineno)d: %(funcName)s: %(levelname)s: %(message)s')
+class LevelFilter(logging.Filter):
+    def __init__(self, level):
+        self.level = level
+
+    def filter(self, record: logging.LogRecord) -> bool:
+        return super().filter(record)
+
+
+logging.basicConfig(filename='cartronic_log.log', level=logging.INFO, filemode="a", format='%(asctime)s: %(lineno)d: %(funcName)s: %(levelname)s: %(message)s')
 logger = logging.getLogger(__name__)
 
 
