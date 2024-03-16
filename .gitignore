@@ -8,4 +8,6 @@ resources_rc.py
 env
 manifest
 __pycache__
+*.spec
+CartronicLicenseGen.py
 .exe
