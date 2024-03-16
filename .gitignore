@@ -9,4 +9,5 @@ env
 ecufixtronic.spec
 test.py
 CartronicLicenseGen.py
+CartronicLicenseGen.spec
 __pycache__
