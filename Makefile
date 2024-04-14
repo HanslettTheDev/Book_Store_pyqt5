@@ -1,5 +1,5 @@
 compile:
-	pyinstaller "Cartronic Prog.spec"
+	pyinstaller "ecufixtronic.spec"
 
 build-decomp:
 	pyinstaller "Catronic Decompiler V1.0.spec"
