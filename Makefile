@@ -2,7 +2,7 @@ compile:
 	pyinstaller "ecufixtronic.spec"
 
 build-decomp:
-	pyinstaller "Catronic Decompiler V1.0.spec"
+	pyinstaller "decompiler.spec"
 
 build-resources:
 	pyside2-rcc resources.qrc -o resources.py
