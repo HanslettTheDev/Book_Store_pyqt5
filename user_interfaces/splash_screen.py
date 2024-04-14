@@ -1,18 +1,6 @@
-# access command line arguments
-import os 
-import time
-import wmi 
-
 from PySide2.QtWidgets import (QMainWindow, QGraphicsDropShadowEffect)
-from PySide2.QtCore import Qt, QTimer, QSize
+from PySide2.QtCore import Qt, QTimer
 from PySide2.QtGui import QColor
-from config import Config
-
-from setup import SetupWindow
-from user_interfaces import verify
-
-# STYLESHEET FILE
-from stylesheet import STYLES
 
 from user_interfaces.home_window import BaseGuiWindow
 from qt_ui_files.ui_splash_screen import Ui_SplashScreen
@@ -91,7 +79,7 @@ class SplashScreen(QMainWindow):
 			self.timer.stop()
 
 			# SHOW MAIN WINDOW
-			self.main_app = self.verify_license()
+			self.main_app = BaseGuiWindow()
 			self.main_app.show()
 
 			# CLOSE SPLASH SCREEN
@@ -123,29 +111,3 @@ class SplashScreen(QMainWindow):
 
 		# APPLY STYLESHEET WITH NEW VALUES
 		self.ui.circularProgress.setStyleSheet(newStylesheet)
-
-	def verify_license(self):
-		DIR_PATH = os.getenv('LOCALAPPDATA')
-		FILE = "yagamie.key"
-		if os.path.isfile(os.path.join(DIR_PATH, FILE)):
-			with open(os.path.join(DIR_PATH, FILE), "r") as f:
-				key = f.readline()
-			chars = key.split("+=")
-			key_id = chars[0]
-			key_address = chars[1]
-			blob = self.get_hardware_id()
-			
-			if (blob == key_id) and verify(key_address):
-				return BaseGuiWindow()
-			else:
-				return SetupWindow()
-		else:
-			return SetupWindow()
-	
-	def get_hardware_id(self):
-		c = wmi.WMI()
-		hardware_id = []
-		for item in c.Win32_PhysicalMedia():
-			if item.SerialNumber != None:
-				hardware_id.append(item.SerialNumber)
-		return hardware_id[0].strip(" ")
