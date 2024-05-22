@@ -397,10 +397,8 @@ class Ui_MainWindow(object):
 "font-weight: bold;")
         self.footer.setFrameShape(QFrame.StyledPanel)
         self.footer.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_5 = QHBoxLayout(self.footer)
-        self.horizontalLayout_5.setSpacing(20)
-        self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
-        self.horizontalLayout_5.setContentsMargins(15, 0, 0, 0)
+        self.horizontalLayout_3 = QHBoxLayout(self.footer)
+        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
         self.frame_2 = QFrame(self.footer)
         self.frame_2.setObjectName(u"frame_2")
         self.frame_2.setMaximumSize(QSize(50, 16777215))
@@ -420,7 +418,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_16.addWidget(self.logo_button)
 
 
-        self.horizontalLayout_5.addWidget(self.frame_2)
+        self.horizontalLayout_3.addWidget(self.frame_2)
 
         self.label_3 = QLabel(self.footer)
         self.label_3.setObjectName(u"label_3")
@@ -429,14 +427,7 @@ class Ui_MainWindow(object):
         self.label_3.setStyleSheet(u"")
         self.label_3.setMargin(4)
 
-        self.horizontalLayout_5.addWidget(self.label_3)
-
-        self.version_label = QLabel(self.footer)
-        self.version_label.setObjectName(u"version_label")
-        self.version_label.setMaximumSize(QSize(70, 16777215))
-        self.version_label.setStyleSheet(u"")
-
-        self.horizontalLayout_5.addWidget(self.version_label)
+        self.horizontalLayout_3.addWidget(self.label_3)
 
         self.whatsapp_button = QPushButton(self.footer)
         self.whatsapp_button.setObjectName(u"whatsapp_button")
@@ -446,7 +437,24 @@ class Ui_MainWindow(object):
 "border-radius: 8px;\n"
 "padding: 10px;")
 
-        self.horizontalLayout_5.addWidget(self.whatsapp_button)
+        self.horizontalLayout_3.addWidget(self.whatsapp_button)
+
+        self.skype_button = QPushButton(self.footer)
+        self.skype_button.setObjectName(u"skype_button")
+        self.skype_button.setMinimumSize(QSize(0, 30))
+        self.skype_button.setMaximumSize(QSize(90, 16777215))
+        self.skype_button.setStyleSheet(u"background-color: #4D77FF;\n"
+"border-radius: 8px;\n"
+"padding: 10px;")
+
+        self.horizontalLayout_3.addWidget(self.skype_button)
+
+        self.version_label = QLabel(self.footer)
+        self.version_label.setObjectName(u"version_label")
+        self.version_label.setMaximumSize(QSize(70, 16777215))
+        self.version_label.setStyleSheet(u"")
+
+        self.horizontalLayout_3.addWidget(self.version_label, 0, Qt.AlignRight)
 
         self.size_grip = QFrame(self.footer)
         self.size_grip.setObjectName(u"size_grip")
@@ -459,7 +467,7 @@ class Ui_MainWindow(object):
         self.size_grip.setFrameShape(QFrame.NoFrame)
         self.size_grip.setFrameShadow(QFrame.Raised)
 
-        self.horizontalLayout_5.addWidget(self.size_grip, 0, Qt.AlignBottom)
+        self.horizontalLayout_3.addWidget(self.size_grip)
 
 
         self.verticalLayout.addWidget(self.footer)
@@ -525,10 +533,14 @@ class Ui_MainWindow(object):
         self.label_6.setText(QCoreApplication.translate("MainWindow", u"DASHBOARD REPAIR", None))
         self.logo_button.setText("")
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"Copyright \u00a9\ufe0f 2022- Powered by LockSmith Inos Mechatronics services. All rights reserved", None))
-        self.version_label.setText(QCoreApplication.translate("MainWindow", u"V1.0.0", None))
 #if QT_CONFIG(accessibility)
         self.whatsapp_button.setAccessibleName("")
 #endif // QT_CONFIG(accessibility)
-        self.whatsapp_button.setText(QCoreApplication.translate("MainWindow", u"Contact", None))
+        self.whatsapp_button.setText(QCoreApplication.translate("MainWindow", u"Whatsapp", None))
+#if QT_CONFIG(accessibility)
+        self.skype_button.setAccessibleName("")
+#endif // QT_CONFIG(accessibility)
+        self.skype_button.setText(QCoreApplication.translate("MainWindow", u"Skype", None))
+        self.version_label.setText(QCoreApplication.translate("MainWindow", u"V1.0.0", None))
     # retranslateUi
 

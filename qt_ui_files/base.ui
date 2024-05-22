@@ -992,22 +992,7 @@ font-weight: bold;</string>
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
          </property>
-         <layout class="QHBoxLayout" name="horizontalLayout_5">
-          <property name="spacing">
-           <number>20</number>
-          </property>
-          <property name="leftMargin">
-           <number>15</number>
-          </property>
-          <property name="topMargin">
-           <number>0</number>
-          </property>
-          <property name="rightMargin">
-           <number>0</number>
-          </property>
-          <property name="bottomMargin">
-           <number>0</number>
-          </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_3">
           <item>
            <widget class="QFrame" name="frame_2">
             <property name="maximumSize">
@@ -1083,22 +1068,6 @@ font-weight: bold;</string>
            </widget>
           </item>
           <item>
-           <widget class="QLabel" name="version_label">
-            <property name="maximumSize">
-             <size>
-              <width>70</width>
-              <height>16777215</height>
-             </size>
-            </property>
-            <property name="styleSheet">
-             <string notr="true"/>
-            </property>
-            <property name="text">
-             <string>V1.0.0</string>
-            </property>
-           </widget>
-          </item>
-          <item>
            <widget class="QPushButton" name="whatsapp_button">
             <property name="minimumSize">
              <size>
@@ -1121,11 +1090,54 @@ border-radius: 8px;
 padding: 10px;</string>
             </property>
             <property name="text">
-             <string>Contact</string>
+             <string>Whatsapp</string>
             </property>
            </widget>
           </item>
-          <item alignment="Qt::AlignBottom">
+          <item>
+           <widget class="QPushButton" name="skype_button">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>90</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="accessibleName">
+             <string/>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: #4D77FF;
+border-radius: 8px;
+padding: 10px;</string>
+            </property>
+            <property name="text">
+             <string>Skype</string>
+            </property>
+           </widget>
+          </item>
+          <item alignment="Qt::AlignRight">
+           <widget class="QLabel" name="version_label">
+            <property name="maximumSize">
+             <size>
+              <width>70</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
+            <property name="text">
+             <string>V1.0.0</string>
+            </property>
+           </widget>
+          </item>
+          <item>
            <widget class="QFrame" name="size_grip">
             <property name="minimumSize">
              <size>

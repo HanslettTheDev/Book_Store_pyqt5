@@ -8,8 +8,9 @@ build-resources:
 	pyside2-rcc resources.qrc -o resources.py
 
 build-ui:
-	pyside2-uic qt_ui_files/tab_display.ui -o tab_display.py
-	pyside2-uic qt_ui_files/base.ui -o base_ui.py
+	pyside2-uic qt_ui_files/tab_display.ui -o generated_gui/tab_display.py
+	pyside2-uic qt_ui_files/base.ui -o generated_gui/gui.py
+	del base_ui.py tab_display.py
 
 install:
 	pip install -r requirements.txt

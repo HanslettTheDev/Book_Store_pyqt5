@@ -3,7 +3,7 @@ from PySide2.QtCore import Qt, QTimer
 from PySide2.QtGui import QColor
 
 from user_interfaces.home_window import BaseGuiWindow
-from qt_ui_files.ui_splash_screen import Ui_SplashScreen
+from generated_gui.ui_splash_screen import Ui_SplashScreen
 
 # GLOBALS
 counter = 0

@@ -107,6 +107,7 @@ class BaseGuiWindow(QMainWindow):
 		self.functions.set_button_icons(self, self.ui.button_16, 'troubleshooting')
 		self.functions.set_button_icons(self, self.ui.button_17, 'datasheet')
 		self.functions.set_button_icons(self, self.ui.whatsapp_button, 'whatsapp', width=20, height=20)
+		self.functions.set_button_icons(self, self.ui.skype_button, 'skype', width=20, height=20)
 
 		# LOGO BUTTON ICON and title bar icon
 		self.ui.title_bar_icon.setIcon(QIcon(":/tab_icons/logo.png"))
@@ -133,7 +134,8 @@ class BaseGuiWindow(QMainWindow):
 		self.show()
 
 		# Button tab events to launch the tab display window
-		self.ui.whatsapp_button.clicked.connect(lambda: self.open_whatsapp())
+		self.ui.whatsapp_button.clicked.connect(lambda: self.open_social(Config.WHATSAPP_LINK))
+		self.ui.skype_button.clicked.connect(lambda: self.open_social(Config.SKYPE_LINK))
 		self.ui.button_17.clicked.connect(lambda: self.functions.sub_content(self, "ECU Datasheet", self.ui.label_9.text()))
 		self.ui.button_16.clicked.connect(lambda: self.functions.sub_content(self, "ECU TROUBLESHOOTING", self.ui.label_7.text()))
 		self.ui.button_14.clicked.connect(lambda: self.functions.sub_content(self, "ECU Repair and Pinout", self.ui.label_5.text()))
@@ -174,17 +176,14 @@ class BaseGuiWindow(QMainWindow):
 	def check_webview_states(self, path, index):
 		if self.webview.windowState() == Qt.WindowMinimized:
 			self.webview.close()
-			# self.progress_bar(index)
 			self.webview.load_pdf(path)
 			self.webview.showNormal()
 		elif self.webview.windowState() != Qt.WindowActive:
 			self.webview.close()
-			# self.progress_bar(index)
 			self.webview.load_pdf(path)
 			self.webview.showNormal()
 		if self.webview.windowState() == Qt.WindowMaximized:
 			self.webview.close()
-			# self.progress_bar(index)
 			self.webview.load_pdf(path)
 			self.webview.showNormal()
 		else:
@@ -201,7 +200,6 @@ class BaseGuiWindow(QMainWindow):
 		elif os.path.isfile(os.path.join(return_path, index.data()+".chm")):
 			os.system("hh.exe %s::/4_Userguide.htm#_Toc270510" %os.path.join(return_path, index.data()+".chm"))
 		elif os.path.isfile(os.path.join(return_path, index.data()+".xlsx")):
-			self.progress_bar(index.data())
 			os.startfile(os.path.join(return_path, index.data()+".xlsx"))			
 		# print('selected item index found at %s with data: %s' %(index.row(), index.data()))
 
@@ -238,5 +236,5 @@ class BaseGuiWindow(QMainWindow):
 	def disableMouseEvent(self, event):
 		pass
 	
-	def open_whatsapp(self):
-		webbrowser.open("https://wa.me/c/237676634413")
+	def open_social(self, social_link):
+		webbrowser.open(social_link)
