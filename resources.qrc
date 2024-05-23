@@ -63,6 +63,7 @@
     <file alias="logo-white.png">resources/tab_icons/logo-white.png</file>
     <file alias="gmail.png">resources/tab_icons/gmail.png</file>
     <file alias="whatsapp.png">resources/tab_icons/whatsapp.png</file>
+    <file alias="skype.png">resources/tab_icons/skype.png</file>
     <file alias="airbag.png">resources/tab_icons/airbag.png</file>
     <file alias="cil-size-grip.png">resources/tab_icons/cil-size-grip.png</file>
     <file alias="cil-window-maximize.png">resources/tab_icons/cil-window-maximize.png</file>

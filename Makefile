@@ -1,5 +1,5 @@
 compile:
-	pyinstaller "ecufixtronic.spec"
+	pyinstaller "ecufixtronic.spec" -y
 
 build-decomp:
 	pyinstaller "decompiler.spec"
